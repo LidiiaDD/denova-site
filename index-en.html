@@ -1,0 +1,702 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0B1220" />
+  <title>Lidiia Denova — Consultant Nephrologist (MD, PhD)</title>
+  <meta name="description" content="Consultant Nephrologist and Internal Medicine specialist. MD, PhD. 20+ years of clinical practice. CKD 1–3, biomarkers, ultrasound, digital medical tools and research." />
+
+  <!-- Same styling as UA to keep one consistent design -->
+  <style>
+    :root{
+      --bg:#0B1220;
+      --panel:#0F1B33;
+      --panel2:#0C1A2C;
+      --border:rgba(255,255,255,.10);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.70);
+      --muted2:rgba(255,255,255,.58);
+      --brand:#6EE7FF;
+      --brand2:#7C3AED;
+      --ok:#22C55E;
+      --shadow: 0 20px 70px rgba(0,0,0,.45);
+      --radius:20px;
+      --radius2:26px;
+      --max:1120px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Liberation Sans";
+      color:var(--text);
+      background:
+        radial-gradient(1200px 500px at 20% 10%, rgba(124,58,237,.20), transparent 60%),
+        radial-gradient(1200px 500px at 80% 20%, rgba(110,231,255,.15), transparent 55%),
+        radial-gradient(1200px 800px at 50% 90%, rgba(110,231,255,.06), transparent 60%),
+        var(--bg);
+    }
+    a{color:inherit; text-decoration:none}
+    .container{max-width:var(--max); margin:0 auto; padding:24px}
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; padding:14px 16px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      box-shadow: 0 8px 28px rgba(0,0,0,.25);
+      position:sticky; top:14px; z-index:10;
+      backdrop-filter: blur(10px);
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      min-width: 220px;
+    }
+    .dot{
+      width:10px; height:10px; border-radius:50%;
+      background: var(--ok);
+      box-shadow: 0 0 0 6px rgba(34,197,94,.12);
+      flex:0 0 auto;
+    }
+    .brand-title{display:flex; flex-direction:column; line-height:1.15;}
+    .brand-title strong{font-weight:750; letter-spacing:.2px}
+    .brand-title span{font-size:12.5px; color:var(--muted)}
+    nav{
+      display:flex; align-items:center; gap:8px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+    .chip{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:9px 12px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      background: rgba(255,255,255,.04);
+      font-size:13px;
+      color:var(--muted);
+      transition: .18s ease;
+      white-space:nowrap;
+    }
+    .chip:hover{transform: translateY(-1px); color:var(--text); background: rgba(255,255,255,.06)}
+    .chip.primary{
+      color:#06121A;
+      background: linear-gradient(90deg, var(--brand), rgba(110,231,255,.65));
+      border-color: rgba(110,231,255,.55);
+      font-weight:700;
+    }
+    .right{
+      display:flex; align-items:center; gap:10px; min-width: 220px; justify-content:flex-end;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .lang{display:flex; gap:6px; align-items:center;}
+    .lang a{
+      padding:7px 10px; border-radius:999px; border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      color:var(--muted);
+      font-size:12.5px;
+    }
+    .lang a.active{
+      color:#06121A;
+      background: linear-gradient(90deg, var(--brand), rgba(110,231,255,.65));
+      border-color: rgba(110,231,255,.55);
+      font-weight:750;
+    }
+
+    .hero{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    .card{
+      border:1px solid var(--border);
+      border-radius: var(--radius2);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .card-inner{padding:22px}
+    .eyebrow{
+      letter-spacing:.22em;
+      font-size:11px;
+      color:var(--muted2);
+      text-transform:uppercase;
+      display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+    }
+    .eyebrow .sep{opacity:.35}
+    h1{
+      margin:10px 0 10px;
+      font-size:40px;
+      line-height:1.05;
+      letter-spacing:-.02em;
+    }
+    .subtitle{
+      color:var(--muted);
+      font-size:15.5px;
+      line-height:1.55;
+      margin-bottom:14px;
+      max-width: 64ch;
+    }
+    .badges{display:flex; flex-wrap:wrap; gap:8px; margin: 12px 0 18px;}
+    .badge{
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      font-size:12.5px;
+      color:var(--muted);
+    }
+    .badge strong{color:var(--text)}
+    .actions{display:flex; gap:10px; flex-wrap:wrap; margin-top: 12px;}
+
+    .grid-right{display:grid; grid-template-rows: auto 1fr; gap:18px;}
+    .profilebox{display:flex; align-items:center; gap:12px;}
+    .avatar{
+      width:52px; height:52px; border-radius:16px;
+      background: linear-gradient(135deg, rgba(110,231,255,.22), rgba(124,58,237,.18));
+      border:1px solid var(--border);
+      display:flex; align-items:center; justify-content:center;
+      font-weight:800;
+      color: rgba(255,255,255,.90);
+      letter-spacing:.08em;
+    }
+    .profilebox .who{display:flex; flex-direction:column; gap:2px;}
+    .profilebox .who strong{font-size:14.5px}
+    .profilebox .who span{font-size:12.5px; color:var(--muted)}
+    .mini-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap:12px;
+      margin-top: 14px;
+    }
+    .mini{
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.035);
+      border-radius: 18px;
+      padding:14px;
+      min-height: 132px;
+    }
+    .mini h3{
+      margin:0 0 8px;
+      font-size:12px;
+      color:var(--muted2);
+      letter-spacing:.18em;
+      text-transform:uppercase;
+    }
+    .mini p{margin:0; color:var(--muted); font-size:13px; line-height:1.45}
+
+    section{margin-top:18px}
+    .section-title{display:flex; align-items:flex-end; justify-content:space-between; gap:12px; margin: 8px 0 10px;}
+    .section-title h2{margin:0; font-size:18px; letter-spacing:.01em;}
+    .section-title span{color:var(--muted2); font-size:12.5px}
+
+    .list{display:grid; grid-template-columns: 1fr 1fr; gap:12px;}
+    .item{
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.035);
+      border-radius: 18px;
+      padding:14px 14px;
+      display:flex; align-items:flex-start; justify-content:space-between; gap:12px;
+    }
+    .item strong{display:block; margin-bottom:4px}
+    .meta{color:var(--muted); font-size:13px; line-height:1.45}
+    .tag{
+      flex:0 0 auto;
+      padding:9px 11px;
+      border-radius:999px;
+      border:1px solid rgba(110,231,255,.45);
+      background: rgba(110,231,255,.12);
+      color:rgba(255,255,255,.92);
+      font-weight:700;
+      font-size:12.5px;
+      white-space:nowrap;
+      transition:.18s ease;
+    }
+    .tag:hover{transform: translateY(-1px); background: rgba(110,231,255,.16)}
+    .tag.secondary{
+      border-color: rgba(255,255,255,.16);
+      background: rgba(255,255,255,.05);
+      color: var(--muted);
+      font-weight:650;
+    }
+
+    .footer{
+      margin: 18px 0 6px;
+      padding: 16px 18px;
+      border:1px solid var(--border);
+      border-radius: 18px;
+      background: rgba(255,255,255,.03);
+      color: var(--muted2);
+      font-size: 12.5px;
+      line-height:1.5;
+    }
+
+    @media (max-width: 960px){
+      .hero{grid-template-columns: 1fr}
+      .mini-grid{grid-template-columns: 1fr}
+      .list{grid-template-columns: 1fr}
+      .brand, .right{min-width:auto}
+      h1{font-size:34px}
+      .topbar{border-radius: 18px}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="topbar">
+      <div class="brand">
+        <div class="dot"></div>
+        <div class="brand-title">
+          <strong>Lidiia Denova</strong>
+          <span>MD, PhD • Nephrology • Internal Medicine • Ultrasound</span>
+        </div>
+      </div>
+
+      <nav aria-label="Site navigation">
+        <a class="chip" href="#about">About</a>
+        <a class="chip" href="#projects">Projects</a>
+        <a class="chip" href="#directions">Focus</a>
+        <a class="chip" href="#apps">Apps</a>
+        <a class="chip" href="#booking">Booking</a>
+        <a class="chip" href="#contact">Contacts</a>
+        <a class="chip primary" href="#booking">Book</a>
+      </nav>
+
+      <div class="right">
+        <span>📍 Ukraine</span>
+        <div class="lang" aria-label="Language switch">
+          <a href="index.html">UA</a>
+          <a class="active" href="index-en.html">EN</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero">
+      <div class="card">
+        <div class="card-inner">
+          <div class="eyebrow">
+            <span>NEPHROLOGY</span><span class="sep">•</span>
+            <span>INTERNAL MEDICINE</span><span class="sep">•</span>
+            <span>ULTRASOUND</span><span class="sep">•</span>
+            <span>RESEARCH</span>
+          </div>
+
+          <h1>Lidiia Denova<br/>MD, PhD</h1>
+
+          <p class="subtitle">
+            Consultant Nephrologist and Internal Medicine specialist with <strong>20+ years of clinical experience</strong>.
+            Focus: early detection and prevention of <strong>CKD progression (Stages 1–3)</strong>, biomarkers and uromodulin profiling,
+            personalized nephrology, ultrasound diagnostics, and digital medical solutions.
+          </p>
+
+          <div class="badges">
+            <div class="badge"><strong>Practice:</strong> since 2005</div>
+            <div class="badge"><strong>Focus:</strong> CKD 1–3</div>
+            <div class="badge"><strong>Ultrasound:</strong> kidneys / abdominal</div>
+            <div class="badge"><strong>Tools:</strong> Uromodulin PRO</div>
+          </div>
+
+          <div class="actions">
+            <a class="chip primary" href="#booking">📅 Online booking</a>
+            <a class="chip" href="#projects">🧩 Projects & tools</a>
+            <a class="chip" href="#contact">✉️ Contact</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-right">
+        <div class="card">
+          <div class="card-inner">
+            <div class="profilebox">
+              <div class="avatar">LD</div>
+              <div class="who">
+                <strong>Lidiia Denova</strong>
+                <span>MD, PhD • Nephrologist • Internal Medicine • Ultrasound</span>
+              </div>
+            </div>
+
+            <div class="mini-grid">
+              <div class="mini">
+                <h3>Focus</h3>
+                <p>CKD risk profiling, biomarkers, uromodulin, personalized approaches, nephron function assessment.</p>
+              </div>
+              <div class="mini">
+                <h3>Digital tools</h3>
+                <p>Calculators, automation for nephrology workflows, PDF/Excel exports, clinical templates.</p>
+              </div>
+              <div class="mini">
+                <h3>Partners</h3>
+                <p>Research & MedTech: pilot projects, data, methodology, analytics and visualization.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-inner">
+            <div class="section-title">
+              <h2>Quick links</h2>
+              <span>social • booking • apps</span>
+            </div>
+
+            <div class="list">
+              <div class="item">
+                <div>
+                  <strong>Instagram (brand)</strong>
+                  <div class="meta">Educational content and digital nephrology tools.</div>
+                </div>
+                <a class="tag" target="_blank" href="https://instagram.com/kidney.help">Follow</a>
+              </div>
+
+              <div class="item">
+                <div>
+                  <strong>Instagram (doctor)</strong>
+                  <div class="meta">Clinical tips and patient-oriented updates.</div>
+                </div>
+                <a class="tag" target="_blank" href="https://instagram.com/denova.lidiia">Follow</a>
+              </div>
+
+              <div class="item">
+                <div>
+                  <strong>Facebook</strong>
+                  <div class="meta">Doctor page (updates/news/contacts).</div>
+                </div>
+                <!-- TODO: insert your exact Facebook URL -->
+                <a class="tag secondary" target="_blank" href="https://facebook.com/">Open</a>
+              </div>
+
+              <div class="item">
+                <div>
+                  <strong>Online booking</strong>
+                  <div class="meta">Calendly (or any other booking link).</div>
+                </div>
+                <a class="tag" href="#booking">Book</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <section id="about">
+      <div class="section-title">
+        <h2>About</h2>
+        <span>clinical • ultrasound • research</span>
+      </div>
+
+      <div class="card">
+        <div class="card-inner">
+          <div class="list">
+            <div class="item">
+              <div>
+                <strong>Clinical practice</strong>
+                <div class="meta">
+                  Over 20 years of experience in Internal Medicine and Nephrology.
+                  Comprehensive management of CKD patients with comorbidities, risk assessment and personalized recommendations.
+                </div>
+              </div>
+              <span class="tag secondary">Since 2005</span>
+            </div>
+
+            <div class="item">
+              <div>
+                <strong>Ultrasound diagnostics</strong>
+                <div class="meta">
+                  Kidney and abdominal ultrasound: protocol-based examinations, measurements, detection of stones/masses,
+                  follow-up and clinical reporting.
+                </div>
+              </div>
+              <span class="tag secondary">Ultrasound</span>
+            </div>
+
+            <div class="item">
+              <div>
+                <strong>Research</strong>
+                <div class="meta">
+                  MD, PhD. Biomarkers and uromodulin profiling, risk models, and implementation of digital tools for nephrology practice and research.
+                </div>
+              </div>
+              <span class="tag secondary">R&D</span>
+            </div>
+
+            <div class="item">
+              <div>
+                <strong>Digital solutions</strong>
+                <div class="meta">
+                  Medical calculators, report generators, PDF/Excel exports and structured clinical templates.
+                </div>
+              </div>
+              <a class="tag secondary" href="#projects">View</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="directions">
+      <div class="section-title">
+        <h2>Focus areas</h2>
+        <span>patients • physicians • partners</span>
+      </div>
+
+      <div class="card">
+        <div class="card-inner">
+          <div class="list">
+            <div class="item">
+              <div>
+                <strong>Nephrology</strong>
+                <div class="meta">
+                  CKD Stages 1–3, risk stratification, nephroprotection, lab/clinical interpretation, prevention of progression.
+                </div>
+              </div>
+              <span class="tag secondary">CKD</span>
+            </div>
+
+            <div class="item">
+              <div>
+                <strong>Internal Medicine</strong>
+                <div class="meta">
+                  Comorbidity management, metabolic disorders, hypertension, diabetes, evidence-based clinical decision support.
+                </div>
+              </div>
+              <span class="tag secondary">IM</span>
+            </div>
+
+            <div class="item">
+              <div>
+                <strong>Ultrasound</strong>
+                <div class="meta">
+                  Kidneys and abdominal organs. Protocol approach, reporting and recommendations.
+                </div>
+              </div>
+              <span class="tag secondary">US</span>
+            </div>
+
+            <div class="item">
+              <div>
+                <strong>Research & MedTech</strong>
+                <div class="meta">
+                  Data, methodology, analytics, visualization, digital tools and pilot collaborations.
+                </div>
+              </div>
+              <span class="tag secondary">R&D</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-title">
+        <h2>Projects & tools</h2>
+        <span>digital nephrology</span>
+      </div>
+
+      <div class="card">
+        <div class="card-inner">
+          <div class="list">
+            <div class="item">
+              <div>
+                <strong>Uromodulin PRO</strong>
+                <div class="meta">
+                  Structured uromodulin profile assessment, risk stratification, report generation and PDF/Excel exports.
+                </div>
+              </div>
+              <a class="tag secondary" href="#apps">Apps</a>
+            </div>
+
+            <div class="item">
+              <div>
+                <strong>KidneyHelp</strong>
+                <div class="meta">
+                  Patient education and clinical support content (updated via Instagram kidney.help).
+                </div>
+              </div>
+              <a class="tag" target="_blank" href="https://instagram.com/kidney.help">Follow</a>
+            </div>
+
+            <div class="item">
+              <div>
+                <strong>PDF/Excel automation</strong>
+                <div class="meta">
+                  Templates, structured summaries, automated exports and clinical reporting workflows.
+                </div>
+              </div>
+              <span class="tag secondary">Automation</span>
+            </div>
+
+            <div class="item">
+              <div>
+                <strong>Research dashboards</strong>
+                <div class="meta">
+                  Data analytics, visualization and support for publications and clinical research outputs.
+                </div>
+              </div>
+              <span class="tag secondary">Analytics</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="apps">
+      <div class="section-title">
+        <h2>Mobile applications</h2>
+        <span>APK / Google Play / iOS</span>
+      </div>
+
+      <div class="card">
+        <div class="card-inner">
+          <div class="list">
+            <div class="item">
+              <div>
+                <strong>APK download (from website)</strong>
+                <div class="meta">
+                  You can publish test APK builds on your website (useful for pilots and medical teams).
+                  Android may require enabling “Install unknown apps”.
+                </div>
+              </div>
+              <a class="tag secondary" href="#contact">Details</a>
+            </div>
+
+            <div class="item">
+              <div>
+                <strong>Google Play (recommended)</strong>
+                <div class="meta">
+                  Best for public users: trusted installs, automatic updates, safety checks.
+                </div>
+              </div>
+              <!-- TODO: replace with your Play Store link -->
+              <a class="tag secondary" target="_blank" href="https://play.google.com/">Open</a>
+            </div>
+
+            <div class="item">
+              <div>
+                <strong>Uromodulin PRO</strong>
+                <div class="meta">
+                  Risk profiling, biomarkers, reporting. (Public link will be added after release.)
+                </div>
+              </div>
+              <a class="tag secondary" href="#booking">Request access</a>
+            </div>
+
+            <div class="item">
+              <div>
+                <strong>KidneyHelp</strong>
+                <div class="meta">
+                  Educational and clinical support content via Instagram kidney.help.
+                </div>
+              </div>
+              <a class="tag" target="_blank" href="https://instagram.com/kidney.help">Follow</a>
+            </div>
+          </div>
+
+          <div class="footer">
+            Note: For direct APK distribution add a short Android install instruction.
+            For patients and public use — Google Play is recommended.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="booking">
+      <div class="section-title">
+        <h2>Online booking</h2>
+        <span>Calendly / other services</span>
+      </div>
+
+      <div class="card">
+        <div class="card-inner">
+          <div class="list">
+            <div class="item">
+              <div>
+                <strong>Book a consultation</strong>
+                <div class="meta">
+                  Create a Calendly page and paste your booking link here.
+                </div>
+              </div>
+              <!-- TODO: replace with your personal Calendly link -->
+              <a class="tag secondary" target="_blank" href="https://calendly.com/">Open Calendly</a>
+            </div>
+
+            <div class="item">
+              <div>
+                <strong>Ultrasound / follow-up visits</strong>
+                <div class="meta">
+                  You can create separate booking types: online consult, ultrasound, follow-up.
+                </div>
+              </div>
+              <a class="tag" href="#contact">Contact</a>
+            </div>
+          </div>
+
+          <div class="footer">
+            Once you create Calendly, replace the link above with yours (e.g., https://calendly.com/denova).
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-title">
+        <h2>Contacts</h2>
+        <span>social • email • phone</span>
+      </div>
+
+      <div class="card">
+        <div class="card-inner">
+          <div class="list">
+            <div class="item">
+              <div>
+                <strong>Instagram kidney.help</strong>
+                <div class="meta">Official KidneyHelp channel.</div>
+              </div>
+              <a class="tag" target="_blank" href="https://instagram.com/kidney.help">Open</a>
+            </div>
+
+            <div class="item">
+              <div>
+                <strong>Instagram denova.lidiia</strong>
+                <div class="meta">Doctor profile.</div>
+              </div>
+              <a class="tag" target="_blank" href="https://instagram.com/denova.lidiia">Open</a>
+            </div>
+
+            <div class="item">
+              <div>
+                <strong>Facebook</strong>
+                <div class="meta">Add your exact page/profile URL.</div>
+              </div>
+              <!-- TODO: insert your exact Facebook URL -->
+              <a class="tag secondary" target="_blank" href="https://facebook.com/">Open</a>
+            </div>
+
+            <div class="item">
+              <div>
+                <strong>Email / phone</strong>
+                <div class="meta">Optional public contact details can be added here.</div>
+              </div>
+              <a class="tag secondary" href="#">Optional</a>
+            </div>
+          </div>
+
+          <div class="footer">
+            © <span id="year"></span> Lidiia Denova, MD, PhD. All rights reserved.
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
