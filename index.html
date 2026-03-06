@@ -1,664 +1,262 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Лікар-нефролог Лідія Денова — MD, PhD</title>
-  <meta name="description" content="Персональна сторінка лікаря-нефролога: напрямки роботи, проєкти, цифрові інструменти та контакти." />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Лікар-нефролог Лідія Денова — MD, PhD" />
-  <meta property="og:description" content="Напрямки роботи, проєкти, цифрові інструменти та контакти." />
-  <meta property="og:type" content="website" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    :root{
-      --bg0:#070b14;
-      --bg1:#0b1224;
-      --card:rgba(255,255,255,.06);
-      --card2:rgba(255,255,255,.08);
-      --line:rgba(255,255,255,.12);
-      --text:#eaf0ff;
-      --muted:rgba(234,240,255,.72);
-      --muted2:rgba(234,240,255,.56);
-      --brand:#49d3ff;
-      --brand2:#7c5cff;
-      --ok:#3ddc97;
-      --shadow:0 16px 40px rgba(0,0,0,.45);
-      --radius:18px;
-      --radius2:26px;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(1200px 600px at 15% 10%, rgba(73,211,255,.18), transparent 55%),
-        radial-gradient(1000px 700px at 85% 20%, rgba(124,92,255,.16), transparent 60%),
-        radial-gradient(900px 500px at 55% 85%, rgba(61,220,151,.10), transparent 60%),
-        linear-gradient(180deg, var(--bg0), var(--bg1));
-      overflow-x:hidden;
-    }
-    a{color:inherit}
-    .wrap{max-width:1180px;margin:0 auto;padding:26px 18px 70px}
-    .topbar{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:14px; padding:10px 10px 14px;
-      position:sticky; top:0; backdrop-filter: blur(10px);
-      background: linear-gradient(180deg, rgba(7,11,20,.85), rgba(7,11,20,.45));
-      border-bottom:1px solid rgba(255,255,255,.06);
-      z-index:10;
-    }
-    .brandRow{display:flex; align-items:center; gap:12px}
-    .logo{
-      width:40px;height:40px;border-radius:14px;
-      background: linear-gradient(135deg, rgba(73,211,255,.35), rgba(124,92,255,.28));
-      border:1px solid rgba(255,255,255,.14);
-      display:grid; place-items:center;
-      box-shadow: 0 12px 28px rgba(0,0,0,.35);
-      font-weight:800; letter-spacing:.5px;
-    }
-    .brandText{display:flex; flex-direction:column; line-height:1.1}
-    .brandText b{font-size:14px}
-    .brandText span{font-size:12px;color:var(--muted2)}
-    nav{display:flex; gap:10px; align-items:center; flex-wrap:wrap; justify-content:flex-end}
-    .pill{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:9px 12px;
-      border-radius:999px;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.10);
-      text-decoration:none;
-      font-size:13px;
-      color:var(--muted);
-      transition:.18s ease;
-      user-select:none;
-    }
-    .pill:hover{transform: translateY(-1px); background:rgba(255,255,255,.09)}
-    .pill.primary{
-      background: linear-gradient(135deg, rgba(73,211,255,.22), rgba(124,92,255,.18));
-      border-color: rgba(73,211,255,.24);
-      color:var(--text);
-    }
-    .lang{
-      display:flex; align-items:center; gap:10px;
-      padding:6px 10px;
-      border-radius:999px;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.10);
-    }
-    .toggle{
-      width:44px;height:26px;border-radius:999px;
-      background:rgba(255,255,255,.10);
-      border:1px solid rgba(255,255,255,.14);
-      position:relative;
-      cursor:pointer;
-      flex:0 0 auto;
-    }
-    .knob{
-      width:22px;height:22px;border-radius:50%;
-      background: linear-gradient(135deg, rgba(73,211,255,.95), rgba(124,92,255,.85));
-      position:absolute; top:1px; left:1px;
-      transition:.18s ease;
-      box-shadow:0 10px 20px rgba(0,0,0,.35);
-    }
-    .toggle[data-lang="en"] .knob{left:21px}
-    .lang small{color:var(--muted2); font-size:12px}
+<title>Dr Lidiia Denova | Nephrologist</title>
 
-    .hero{
-      display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap:18px;
-      margin-top:18px;
-    }
-    .card{
-      background: rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.10);
-      border-radius: var(--radius2);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-    }
-    .heroLeft{padding:28px 28px 22px; position:relative}
-    .kicker{
-      font-size:12px; letter-spacing:.14em; text-transform:uppercase;
-      color:rgba(234,240,255,.65);
-    }
-    h1{
-      margin:10px 0 10px;
-      font-size:46px;
-      line-height:1.05;
-      letter-spacing:-.02em;
-    }
-    .sub{
-      color:var(--muted);
-      font-size:16px;
-      line-height:1.55;
-      max-width:62ch;
-      margin: 10px 0 18px;
-    }
-    .badges{display:flex; flex-wrap:wrap; gap:10px; margin:14px 0 18px}
-    .badge{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:8px 12px;
-      border-radius:999px;
-      background: rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.12);
-      color:rgba(234,240,255,.80);
-      font-size:13px;
-    }
-    .dot{width:8px;height:8px;border-radius:50%; background: var(--ok); box-shadow:0 0 0 3px rgba(61,220,151,.15)}
-    .btnRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding:11px 14px;
-      border-radius:14px;
-      background:rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.12);
-      text-decoration:none;
-      color:var(--text);
-      font-weight:650;
-      font-size:14px;
-      transition:.18s ease;
-    }
-    .btn:hover{transform: translateY(-1px); background:rgba(255,255,255,.11)}
-    .btn.cta{
-      background: linear-gradient(135deg, rgba(73,211,255,.26), rgba(124,92,255,.22));
-      border-color: rgba(73,211,255,.28);
-    }
+<meta name="description" content="Dr Lidiia Denova – nephrologist, CKD researcher, biomarkers, uromodulin, nephrology calculators and online consultation.">
 
-    .heroRight{padding:22px}
-    .miniGrid{display:grid; gap:12px}
-    .miniHead{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:12px; padding:16px;
-      background: linear-gradient(135deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
-      border:1px solid rgba(255,255,255,.08);
-      border-radius: var(--radius);
-    }
-    .avatar{
-      width:44px;height:44px;border-radius:14px;
-      background: rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.12);
-      display:grid; place-items:center;
-      font-weight:800;
-    }
-    .metaRight{display:flex; flex-direction:column; gap:4px}
-    .metaRight b{font-size:14px}
-    .metaRight span{font-size:12px;color:var(--muted2)}
-    .flagRow{display:flex; align-items:center; gap:10px; color:var(--muted2); font-size:12px}
-    .grid3{
-      display:grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap:12px;
-    }
-    .miniCard{
-      padding:16px;
-      background: rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.10);
-      border-radius: var(--radius);
-      min-height:130px;
-    }
-    .miniCard h3{margin:0 0 8px; font-size:13px; color:rgba(234,240,255,.82); letter-spacing:.02em}
-    .miniCard p{margin:0; font-size:13px; line-height:1.5; color:var(--muted)}
+<style>
 
-    section{
-      margin-top:18px;
-      padding:22px;
-      border-radius: var(--radius2);
-      background: rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.08);
-    }
-    section h2{margin:0 0 10px; font-size:20px}
-    .cols{
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap:14px;
-      align-items:start;
-    }
-    .box{
-      padding:16px;
-      border-radius: var(--radius);
-      background: rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.10);
-    }
-    .list{margin:0; padding-left:18px; color:var(--muted); line-height:1.6}
-    .muted{color:var(--muted)}
-    .muted2{color:var(--muted2)}
-    .contactGrid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:12px;
-      margin-top:12px;
-    }
-    .contactItem{
-      padding:14px;
-      border-radius: var(--radius);
-      background: rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.10);
-    }
-    .contactItem b{display:block; margin-bottom:6px}
-    .contactItem a{color:var(--text); text-decoration:none}
-    .contactItem a:hover{text-decoration:underline}
-    footer{
-      margin-top:16px;
-      padding:12px 6px 0;
-      color:rgba(234,240,255,.45);
-      font-size:12px;
-      text-align:center;
-    }
+body{
+margin:0;
+font-family:Arial,Helvetica,sans-serif;
+background:#0f172a;
+color:white;
+}
 
-    @media (max-width: 980px){
-      .hero{grid-template-columns:1fr}
-      .cols{grid-template-columns:1fr}
-      h1{font-size:40px}
-      .grid3{grid-template-columns:1fr}
-      .contactGrid{grid-template-columns:1fr}
-      nav{display:none}
-    }
-  </style>
+header{
+background:#020617;
+padding:40px;
+text-align:center;
+}
+
+h1{
+margin:0;
+font-size:42px;
+}
+
+.subtitle{
+color:#94a3b8;
+margin-top:10px;
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+padding:40px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr 1fr;
+gap:25px;
+}
+
+.card{
+background:#1e293b;
+padding:30px;
+border-radius:15px;
+}
+
+.card h2{
+margin-top:0;
+color:#38bdf8;
+}
+
+.section{
+margin-top:50px;
+}
+
+.button{
+background:#38bdf8;
+border:none;
+padding:12px 20px;
+border-radius:8px;
+cursor:pointer;
+font-size:16px;
+}
+
+footer{
+margin-top:60px;
+padding:20px;
+background:#020617;
+text-align:center;
+color:#94a3b8;
+}
+
+input{
+padding:10px;
+margin:5px;
+border-radius:6px;
+border:none;
+}
+
+.calc{
+margin-top:15px;
+}
+
+.result{
+font-size:20px;
+margin-top:10px;
+color:#38bdf8;
+}
+
+</style>
+
 </head>
 
 <body>
-  <div class="topbar">
-    <div class="brandRow">
-      <div class="logo">LD</div>
-      <div class="brandText">
-        <b id="topName">Lidiia Denova</b>
-        <span id="topDomain">denova.eu.org</span>
-      </div>
-    </div>
 
-    <nav>
-      <a class="pill" href="#about" id="navAbout">Про мене</a>
-      <a class="pill" href="#projects" id="navProjects">Проєкти</a>
-      <a class="pill" href="#directions" id="navDirections">Напрямки</a>
-      <a class="pill" href="#contacts" id="navContacts">Контакти</a>
-      <a class="pill primary" href="#contacts" id="navBook">Запис / Звʼязок</a>
-    </nav>
+<header>
 
-    <div class="lang">
-      <small id="langLabel">UA</small>
-      <div class="toggle" id="langToggle" data-lang="uk" title="UA / EN">
-        <div class="knob"></div>
-      </div>
-      <small>EN</small>
-    </div>
-  </div>
+<h1>Dr Lidiia Denova</h1>
 
-  <div class="wrap">
-    <div class="hero">
-      <div class="card heroLeft">
-        <div class="kicker" id="kicker">NEPHROLOGY • INTERNAL MEDICINE • RESEARCH • ULTRASOUND</div>
-        <h1 id="h1">Лікар-нефролог<br/>Лідія Денова</h1>
-        <div class="sub" id="subtitle">
-          MD, PhD. Персональна сторінка для пацієнтів, колег і партнерів: напрямки роботи, наукові ініціативи та цифрові інструменти.
-        </div>
+<div class="subtitle">
+Nephrologist • CKD Researcher • Biomarkers • Digital nephrology tools
+</div>
 
-        <div class="badges">
-          <div class="badge"><span class="dot"></span><span id="badge1">Практика: з 2005 року (20+ років)</span></div>
-          <div class="badge"><span id="badge2">Фокус: ХХН 1–3</span></div>
-          <div class="badge"><span id="badge3">УЗД/УХД діагностика</span></div>
-          <div class="badge"><span id="badge4">Інструмент: Uromodulin PRO</span></div>
-        </div>
+</header>
 
-        <div class="btnRow">
-          <a class="btn cta" href="#contacts" id="btnContact">Звʼязатися</a>
-          <a class="btn" href="#projects" id="btnTools">Проєкти та інструменти</a>
-          <a class="btn" href="#directions" id="btnDirections">Напрямки</a>
-        </div>
-      </div>
 
-      <div class="card heroRight">
-        <div class="miniGrid">
-          <div class="miniHead">
-            <div style="display:flex;gap:12px;align-items:center;">
-              <div class="avatar">LD</div>
-              <div class="metaRight">
-                <b id="miniName">Lidiia Denova</b>
-                <span id="miniTitle">MD, PhD • Nephrologist</span>
-              </div>
-            </div>
-            <div class="flagRow">
-              <span>📍</span><span id="miniLoc">Україна</span>
-              <span style="opacity:.5">•</span>
-              <span id="miniLang">UA / EN</span>
-            </div>
-          </div>
+<div class="container">
 
-          <div class="grid3">
-            <div class="miniCard">
-              <h3 id="c1t">ФОКУС</h3>
-              <p id="c1p">Хронічна хвороба нирок, профілі ризику, біомаркери, оцінка функції нефрону.</p>
-            </div>
-            <div class="miniCard">
-              <h3 id="c2t">ЦИФРОВІ ІНСТРУМЕНТИ</h3>
-              <p id="c2p">Калькулятори та звіти, автоматизація під нефрологію, експорт PDF/Excel.</p>
-            </div>
-            <div class="miniCard">
-              <h3 id="c3t">ДЛЯ ПАРТНЕРІВ</h3>
-              <p id="c3p">Research & MedTech: пілотні проєкти, методологія, візуалізації для досліджень.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <section id="about">
-      <h2 id="aboutH">Про мене</h2>
-      <div class="cols">
-        <div class="box">
-          <p class="muted" id="aboutP1">
-            Я — лікар-нефролог (MD, PhD) із клінічною практикою з 2005 року. Працюю з пацієнтами з хронічною хворобою нирок,
-            артеріальною гіпертензією та супутніми метаболічними порушеннями. Окремий напрям — ультразвукова діагностика (УЗД/УХД)
-            у щоденній практиці.
-          </p>
-          <p class="muted" id="aboutP2">
-            Паралельно розвиваю цифрові інструменти для нефрології: калькулятори, автоматизацію формування висновків та структуровані звіти.
-          </p>
-        </div>
+<div class="grid">
 
-        <div class="box">
-          <b id="aboutB">Ключові компетенції</b>
-          <ul class="list" id="aboutList">
-            <li>Ведення пацієнтів з ХХН 1–3 стадії</li>
-            <li>Оцінка ризику прогресування та супутніх факторів</li>
-            <li>Інтерпретація лабораторних/інструментальних даних</li>
-            <li>УЗД/УХД: базові протоколи та практичні кейси</li>
-            <li>Медичні цифрові інструменти (PDF/Excel, дашборди, калькулятори)</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+<div class="card">
 
-    <section id="projects">
-      <h2 id="projH">Проєкти та інструменти</h2>
-      <div class="cols">
-        <div class="box">
-          <b id="projB1">Uromodulin PRO</b>
-          <p class="muted" id="projP1">
-            Набір інструментів для аналізу уромодулінового профілю, узгодження показників та формування структурованих висновків.
-          </p>
-          <div class="btnRow">
-            <!-- Якщо з'явиться конкретна сторінка/док — замінимо href -->
-            <a class="btn" href="#contacts" id="projBtn1">Запитати доступ / демо</a>
-          </div>
-        </div>
+<h2>Focus</h2>
 
-        <div class="box">
-          <b id="projB2">Калькулятори та звіти</b>
-          <p class="muted" id="projP2">
-            Автоматизація рутинних розрахунків, формування звітів для пацієнтів і лікарів, експорт у PDF/Excel.
-          </p>
-          <div class="btnRow">
-            <a class="btn" href="#contacts" id="projBtn2">Запропонувати співпрацю</a>
-          </div>
-        </div>
-      </div>
-      <p class="muted2" id="projNote" style="margin:12px 0 0">
-        * За потреби додам окремі сторінки з описом кожного проєкту, скрінами, PDF-прикладами та кнопками “спробувати”.
-      </p>
-    </section>
+<ul>
+<li>Chronic kidney disease (CKD 1–3)</li>
+<li>Nephron biomarkers</li>
+<li>Uromodulin profile</li>
+<li>Metabolic risk factors</li>
+<li>Early CKD detection</li>
+</ul>
 
-    <section id="directions">
-      <h2 id="dirH">Напрямки</h2>
-      <div class="cols">
-        <div class="box">
-          <b id="dirB1">Для пацієнтів</b>
-          <ul class="list" id="dirList1">
-            <li>Оцінка стану нирок та факторів ризику</li>
-            <li>Індивідуальні рекомендації та план спостереження</li>
-            <li>Пояснення аналізів та моніторинг динаміки</li>
-          </ul>
-        </div>
-        <div class="box">
-          <b id="dirB2">Для колег і партнерів</b>
-          <ul class="list" id="dirList2">
-            <li>Наукові колаборації та методологія</li>
-            <li>Медтех-проєкти: прототипи, MVP, візуалізації</li>
-            <li>Автоматизація документів, шаблонів, звітів</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+</div>
 
-    <section id="contacts">
-      <h2 id="conH">Контакти</h2>
-      <p class="muted" id="conP">
-        Для звʼязку та співпраці: напишіть у соцмережі або на email. (Якщо хочете — додам форму зворотного зв’язку.)
-      </p>
 
-      <div class="contactGrid">
-        <div class="contactItem">
-          <b id="conSoc">Соцмережі</b>
-          <div style="display:flex; gap:10px; flex-wrap:wrap;">
-            <a class="pill" href="https://www.instagram.com/kidney.help?igsh=MWRhN3hyYzhiMzd5MA==" target="_blank" rel="noopener">Instagram: kidney.help</a>
-            <a class="pill" href="https://www.facebook.com/share/1ANeQTvCQ5/" target="_blank" rel="noopener">Facebook</a>
-          </div>
-        </div>
+<div class="card">
 
-        <div class="contactItem">
-          <b id="conEmail">Email</b>
-          <!-- Замініть на вашу реальну пошту, коли створимо доменну -->
-          <div class="muted">
-            <span id="emailHint">Наразі:</span>
-            <a href="mailto:marbua18@gmail.com">marbua18@gmail.com</a>
-          </div>
-          <div class="muted2" style="margin-top:6px" id="domainHint">
-            Після налаштування доменної пошти додамо адресу на кшталт: nephrolog@вашдомен
-          </div>
-        </div>
-      </div>
+<h2>Digital tools</h2>
 
-      <div class="box" style="margin-top:12px">
-        <b id="appH">Мобільний застосунок</b>
-        <p class="muted" id="appP">
-          Якщо у вас буде APK (Android), його можна розмістити на сайті як файл для завантаження (користувачам потрібно буде дозволити встановлення з невідомих джерел).
-          Для iPhone найкращий шлях — App Store / TestFlight. Google Play теж можливий варіант для Android.
-        </p>
-        <!-- Поки без реального APK; коли буде файл — підставимо посилання -->
-        <div class="btnRow">
-          <a class="btn" href="#" id="apkBtn" onclick="alert('Додамо посилання, коли буде готовий APK файл.'); return false;">Завантажити APK (Android)</a>
-          <a class="btn" href="#" id="gpBtn" onclick="alert('Додамо посилання на Google Play, якщо будете публікувати там.'); return false;">Google Play</a>
-        </div>
-      </div>
-    </section>
+<ul>
+<li>eGFR calculator</li>
+<li>ACR calculator</li>
+<li>KDIGO CKD stage</li>
+<li>Uromodulin index</li>
+<li>CKD metabolic risk</li>
+</ul>
 
-    <footer id="footer">
-      © <span id="year"></span> Lidiia Denova • denova.eu.org
-    </footer>
-  </div>
+</div>
 
-  <script>
-    const T = {
-      uk: {
-        topName: "Lidiia Denova",
-        topDomain: "denova.eu.org",
-        navAbout: "Про мене",
-        navProjects: "Проєкти",
-        navDirections: "Напрямки",
-        navContacts: "Контакти",
-        navBook: "Запис / Звʼязок",
-        kicker: "NEPHROLOGY • INTERNAL MEDICINE • RESEARCH • ULTRASOUND",
-        h1: "Лікар-нефролог<br/>Лідія Денова",
-        subtitle: "MD, PhD. Персональна сторінка для пацієнтів, колег і партнерів: напрямки роботи, наукові ініціативи та цифрові інструменти.",
-        badge1: "Практика: з 2005 року (20+ років)",
-        badge2: "Фокус: ХХН 1–3",
-        badge3: "УЗД/УХД діагностика",
-        badge4: "Інструмент: Uromodulin PRO",
-        btnContact: "Звʼязатися",
-        btnTools: "Проєкти та інструменти",
-        btnDirections: "Напрямки",
-        miniName: "Lidiia Denova",
-        miniTitle: "MD, PhD • Лікар-нефролог",
-        miniLoc: "Україна",
-        miniLang: "UA / EN",
-        c1t: "ФОКУС",
-        c1p: "Хронічна хвороба нирок, профілі ризику, біомаркери, оцінка функції нефрону.",
-        c2t: "ЦИФРОВІ ІНСТРУМЕНТИ",
-        c2p: "Калькулятори та звіти, автоматизація під нефрологію, експорт PDF/Excel.",
-        c3t: "ДЛЯ ПАРТНЕРІВ",
-        c3p: "Research & MedTech: пілотні проєкти, методологія, візуалізації для досліджень.",
-        aboutH: "Про мене",
-        aboutP1: "Я — лікар-нефролог (MD, PhD) із клінічною практикою з 2005 року. Працюю з пацієнтами з хронічною хворобою нирок, артеріальною гіпертензією та супутніми метаболічними порушеннями. Окремий напрям — ультразвукова діагностика (УЗД/УХД) у щоденній практиці.",
-        aboutP2: "Паралельно розвиваю цифрові інструменти для нефрології: калькулятори, автоматизацію формування висновків та структуровані звіти.",
-        aboutB: "Ключові компетенції",
-        aboutList: [
-          "Ведення пацієнтів з ХХН 1–3 стадії",
-          "Оцінка ризику прогресування та супутніх факторів",
-          "Інтерпретація лабораторних/інструментальних даних",
-          "УЗД/УХД: базові протоколи та практичні кейси",
-          "Медичні цифрові інструменти (PDF/Excel, дашборди, калькулятори)"
-        ],
-        projH: "Проєкти та інструменти",
-        projB1: "Uromodulin PRO",
-        projP1: "Набір інструментів для аналізу уромодулінового профілю, узгодження показників та формування структурованих висновків.",
-        projBtn1: "Запитати доступ / демо",
-        projB2: "Калькулятори та звіти",
-        projP2: "Автоматизація рутинних розрахунків, формування звітів для пацієнтів і лікарів, експорт у PDF/Excel.",
-        projBtn2: "Запропонувати співпрацю",
-        projNote: "* За потреби додам окремі сторінки з описом кожного проєкту, скрінами, PDF-прикладами та кнопками “спробувати”.",
-        dirH: "Напрямки",
-        dirB1: "Для пацієнтів",
-        dirList1: [
-          "Оцінка стану нирок та факторів ризику",
-          "Індивідуальні рекомендації та план спостереження",
-          "Пояснення аналізів та моніторинг динаміки"
-        ],
-        dirB2: "Для колег і партнерів",
-        dirList2: [
-          "Наукові колаборації та методологія",
-          "Медтех-проєкти: прототипи, MVP, візуалізації",
-          "Автоматизація документів, шаблонів, звітів"
-        ],
-        conH: "Контакти",
-        conP: "Для звʼязку та співпраці: напишіть у соцмережі або на email. (Якщо хочете — додам форму зворотного зв’язку.)",
-        conSoc: "Соцмережі",
-        conEmail: "Email",
-        emailHint: "Наразі:",
-        domainHint: "Після налаштування доменної пошти додамо адресу на кшталт: nephrolog@вашдомен",
-        appH: "Мобільний застосунок",
-        appP: "Якщо у вас буде APK (Android), його можна розмістити на сайті як файл для завантаження (користувачам потрібно буде дозволити встановлення з невідомих джерел). Для iPhone найкращий шлях — App Store / TestFlight. Google Play теж можливий варіант для Android.",
-      },
-      en: {
-        topName: "Lidiia Denova",
-        topDomain: "denova.eu.org",
-        navAbout: "About",
-        navProjects: "Projects",
-        navDirections: "Focus",
-        navContacts: "Contacts",
-        navBook: "Contact / Booking",
-        kicker: "NEPHROLOGY • INTERNAL MEDICINE • RESEARCH • ULTRASOUND",
-        h1: "Nephrologist<br/>Lidiia Denova",
-        subtitle: "MD, PhD. A personal page for patients, colleagues and partners: clinical focus, research initiatives and digital tools.",
-        badge1: "Practice: since 2005 (20+ years)",
-        badge2: "Focus: CKD stages 1–3",
-        badge3: "Ultrasound diagnostics",
-        badge4: "Tool: Uromodulin PRO",
-        btnContact: "Contact",
-        btnTools: "Projects & tools",
-        btnDirections: "Focus",
-        miniName: "Lidiia Denova",
-        miniTitle: "MD, PhD • Nephrologist",
-        miniLoc: "Ukraine",
-        miniLang: "UA / EN",
-        c1t: "FOCUS",
-        c1p: "Chronic kidney disease, risk profiles, biomarkers, nephron function assessment.",
-        c2t: "DIGITAL TOOLS",
-        c2p: "Calculators & reports, nephrology automation, PDF/Excel export.",
-        c3t: "FOR PARTNERS",
-        c3p: "Research & MedTech: pilots, methodology, research visualizations.",
-        aboutH: "About",
-        aboutP1: "I am a nephrologist (MD, PhD) with clinical practice since 2005. I work with CKD, hypertension and related metabolic conditions. A dedicated direction is ultrasound diagnostics in daily practice.",
-        aboutP2: "In parallel, I develop digital tools for nephrology: calculators, report automation and structured outputs.",
-        aboutB: "Key expertise",
-        aboutList: [
-          "Management of CKD stages 1–3",
-          "Risk assessment and comorbidity review",
-          "Interpretation of lab and imaging data",
-          "Ultrasound: core protocols and real-world cases",
-          "Medical digital tools (PDF/Excel, dashboards, calculators)"
-        ],
-        projH: "Projects & tools",
-        projB1: "Uromodulin PRO",
-        projP1: "Tools for uromodulin profile analysis, harmonizing indicators and generating structured conclusions.",
-        projBtn1: "Request access / demo",
-        projB2: "Calculators & reports",
-        projP2: "Automation of routine calculations, PDF/Excel reports for patients and clinicians.",
-        projBtn2: "Propose collaboration",
-        projNote: "* If needed, I can add dedicated pages for each project with screenshots and downloadable examples.",
-        dirH: "Focus",
-        dirB1: "For patients",
-        dirList1: [
-          "Kidney health assessment and risk factors",
-          "Personalized recommendations and follow-up plan",
-          "Lab results explanation and trend monitoring"
-        ],
-        dirB2: "For colleagues & partners",
-        dirList2: [
-          "Research collaboration and methodology",
-          "MedTech: prototypes, MVP, visualizations",
-          "Automation of documents, templates and reports"
-        ],
-        conH: "Contacts",
-        conP: "For collaboration or inquiries: message via social media or email. (I can add a contact form if you want.)",
-        conSoc: "Social",
-        conEmail: "Email",
-        emailHint: "Current:",
-        domainHint: "After domain email is set, we can add something like: nephrolog@yourdomain",
-        appH: "Mobile app",
-        appP: "If you have an APK (Android), you can host it on the website as a downloadable file (users must allow installs from unknown sources). For iPhone, best options are App Store / TestFlight. Google Play is also possible for Android.",
-      }
-    };
 
-    const ids = [
-      "topName","topDomain","navAbout","navProjects","navDirections","navContacts","navBook",
-      "kicker","h1","subtitle","badge1","badge2","badge3","badge4",
-      "btnContact","btnTools","btnDirections",
-      "miniName","miniTitle","miniLoc","miniLang","c1t","c1p","c2t","c2p","c3t","c3p",
-      "aboutH","aboutP1","aboutP2","aboutB",
-      "projH","projB1","projP1","projBtn1","projB2","projP2","projBtn2","projNote",
-      "dirH","dirB1","dirB2","conH","conP","conSoc","conEmail","emailHint","domainHint","appH","appP"
-    ];
+<div class="card">
 
-    function setList(id, items){
-      const el = document.getElementById(id);
-      if(!el) return;
-      el.innerHTML = "";
-      items.forEach(x=>{
-        const li = document.createElement("li");
-        li.textContent = x;
-        el.appendChild(li);
-      });
-    }
+<h2>Research</h2>
 
-    function applyLang(lang){
-      const t = T[lang];
-      document.documentElement.lang = lang === "uk" ? "uk" : "en";
-      document.getElementById("langLabel").textContent = lang === "uk" ? "UA" : "EN";
+<ul>
+<li>Uromodulin biomarkers</li>
+<li>Metabolic profile in CKD</li>
+<li>CKD progression models</li>
+<li>Digital nephrology tools</li>
+</ul>
 
-      ids.forEach(id=>{
-        const el = document.getElementById(id);
-        if(!el) return;
-        if(id === "h1") el.innerHTML = t[id];
-        else el.textContent = t[id];
-      });
+</div>
 
-      setList("aboutList", t.aboutList);
-      setList("dirList1", t.dirList1);
-      setList("dirList2", t.dirList2);
-    }
+</div>
 
-    const toggle = document.getElementById("langToggle");
-    toggle.addEventListener("click", ()=>{
-      const next = toggle.dataset.lang === "uk" ? "en" : "uk";
-      toggle.dataset.lang = next;
-      applyLang(next);
-    });
 
-    document.getElementById("year").textContent = new Date().getFullYear();
-    applyLang("uk");
-  </script>
+<div class="section">
+
+<h2>eGFR calculator</h2>
+
+<p>Simple CKD-EPI estimation (demo version)</p>
+
+<div class="calc">
+
+<input id="creatinine" placeholder="Creatinine (µmol/L)">
+
+<input id="age" placeholder="Age">
+
+<select id="sex">
+<option value="female">Female</option>
+<option value="male">Male</option>
+</select>
+
+<br><br>
+
+<button class="button" onclick="calc()">Calculate</button>
+
+<div class="result" id="result"></div>
+
+</div>
+
+</div>
+
+
+<div class="section">
+
+<h2>Online consultation</h2>
+
+<p>
+
+Remote consultation regarding:
+
+</p>
+
+<ul>
+
+<li>CKD risk</li>
+
+<li>interpretation of kidney tests</li>
+
+<li>nephrology diagnostics</li>
+
+</ul>
+
+<p>
+
+Contact:
+
+</p>
+
+<b>
+
+kidney.help.ua@gmail.com
+
+</b>
+
+</div>
+
+
+</div>
+
+
+<footer>
+
+kidney.pp.ua
+
+</footer>
+
+
+<script>
+
+function calc(){
+
+let cr = document.getElementById("creatinine").value
+
+let age = document.getElementById("age").value
+
+let sex = document.getElementById("sex").value
+
+cr = cr / 88.4
+
+let egfr = 141 * Math.pow(Math.min(cr/0.7,1),-0.329) * Math.pow(Math.max(cr/0.7,1),-1.209) * Math.pow(0.993,age)
+
+if(sex==="female") egfr *= 1.018
+
+document.getElementById("result").innerHTML = "eGFR ≈ " + egfr.toFixed(1)
+
+}
+
+</script>
+
 </body>
 </html>
