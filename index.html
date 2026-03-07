@@ -381,6 +381,32 @@
 
     gtag('config', 'G-16T0D8XT9X');
   </script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const pdfLinks = document.querySelectorAll('a[href$=".pdf"], a[href*=".pdf?"]');
+
+    pdfLinks.forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (typeof gtag !== 'function') return;
+
+        const href = link.getAttribute('href') || '';
+        const fileUrl = new URL(href, window.location.origin).href;
+        const fileName = fileUrl.split('/').pop().split('?')[0];
+        const isDownload =
+          link.hasAttribute('download') ||
+          (link.getAttribute('target') || '').toLowerCase() !== '_blank' &&
+          (link.textContent || '').toLowerCase().includes('download');
+
+        gtag('event', isDownload ? 'pdf_download' : 'pdf_open', {
+          file_name: fileName,
+          file_url: fileUrl,
+          page_location: window.location.href,
+          link_text: (link.textContent || '').trim()
+        });
+      });
+    });
+  });
+  </script>
 </head>
 <body>
 
