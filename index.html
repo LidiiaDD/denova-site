@@ -716,60 +716,67 @@
   </footer>
 
   <script>
-    function calcEgfr() {
-      let cr = parseFloat(document.getElementById("creatinine").value);
-      let age = parseFloat(document.getElementById("age").value);
-      let sex = document.getElementById("sex").value;
-      let result = document.getElementById("result");
 
-      if (isNaN(cr) || isNaN(age) || cr <= 0 || age <= 0) {
-        result.innerHTML = "Please enter valid creatinine and age values.";
-        return;
-      }
+  function calcEgfr() {
 
-      cr = cr / 88.4;
+    let cr = parseFloat(document.getElementById("creatinine").value);
+    let age = parseFloat(document.getElementById("age").value);
+    let sex = document.getElementById("sex").value;
+    let result = document.getElementById("result");
 
-      let k = sex === "female" ? 0.7 : 0.9;
-      let a = sex === "female" ? -0.329 : -0.411;
-      let sexFactor = sex === "female" ? 1.018 : 1.0;
-
-      let egfr =
-        141 *
-        Math.pow(Math.min(cr / k, 1), a) *
-        Math.pow(Math.max(cr / k, 1), -1.209) *
-        Math.pow(0.993, age) *
-        sexFactor;
-
-      result.innerHTML = "eGFR ≈ " + egfr.toFixed(1) + " ml/min/1.73 m²";
+    if (isNaN(cr) || isNaN(age) || cr <= 0 || age <= 0) {
+      result.innerHTML = "Please enter valid creatinine and age values.";
+      return;
     }
 
-    function setLanguage(lang) {
-      const ua = document.querySelectorAll('.lang-ua');
-      const en = document.querySelectorAll('.lang-en');
-      const btnUa = document.getElementById('btn-ua');
-      const btnEn = document.getElementById('btn-en');
+    cr = cr / 88.4;
 
-      if (lang === 'ua') {
-        ua.forEach(el => el.style.display = '');
-        en.forEach(el => el.style.display = 'none');
-        btnUa.classList.add('active');
-        btnEn.classList.remove('active');
-        document.documentElement.lang = 'uk';
-      } else {
-        ua.forEach(el => el.style.display = 'none');
-        en.forEach(el => el.style.display = '');
-        btnUa.classList.remove('active');
-        btnEn.classList.add('active');
-        document.documentElement.lang = 'en';
-      }
+    let k = sex === "female" ? 0.7 : 0.9;
+    let a = sex === "female" ? -0.329 : -0.411;
+    let sexFactor = sex === "female" ? 1.018 : 1.0;
 
-      localStorage.setItem('siteLang', lang);
+    let egfr =
+      141 *
+      Math.pow(Math.min(cr / k, 1), a) *
+      Math.pow(Math.max(cr / k, 1), -1.209) *
+      Math.pow(0.993, age) *
+      sexFactor;
+
+    result.innerHTML = "eGFR ≈ " + egfr.toFixed(1) + " ml/min/1.73 m²";
+  }
+
+
+
+  function setLanguage(lang) {
+
+    const btnUa = document.getElementById('btn-ua');
+    const btnEn = document.getElementById('btn-en');
+
+    document.body.classList.remove('lang-ua', 'lang-en');
+    document.body.classList.add('lang-' + lang);
+
+    if (lang === 'ua') {
+      btnUa.classList.add('active');
+      btnEn.classList.remove('active');
+      document.documentElement.lang = 'uk';
+    } else {
+      btnUa.classList.remove('active');
+      btnEn.classList.add('active');
+      document.documentElement.lang = 'en';
     }
 
-    document.addEventListener('DOMContentLoaded', function () {
-      const savedLang = localStorage.getItem('siteLang') || 'ua';
-      setLanguage(savedLang);
-    });
+    localStorage.setItem('siteLang', lang);
+  }
+
+
+
+  document.addEventListener('DOMContentLoaded', function () {
+
+    const savedLang = localStorage.getItem('siteLang') || 'ua';
+    setLanguage(savedLang);
+
+  });
+
   </script>
 
 </body>
