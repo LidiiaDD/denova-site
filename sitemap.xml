@@ -7,26 +7,8 @@
 </url>
 
 <url>
-<loc>https://kidney.pp.ua/#focus</loc>
-</url>
-
-<url>
-<loc>https://kidney.pp.ua/#calculator</loc>
-</url>
-
-<url>
-<loc>https://kidney.pp.ua/#consultation</loc>
-</url>
-
-<url>
-<loc>https://kidney.pp.ua/#profiles</loc>
-</url>
-
-<url>
 <loc>https://kidney.pp.ua/publications.html</loc>
-</url>  
-<url>
-<loc>https://kidney.pp.ua/#archive</loc>
+<priority>0.8</priority>
 </url>
 
 </urlset>
