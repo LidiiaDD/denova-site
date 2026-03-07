@@ -1,262 +1,399 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr Lidiia Denova | Nephrologist</title>
+  <meta name="description" content="Dr Lidiia Denova — лікар-нефролог. Хронічна хвороба нирок, біомаркери нефрону, уромодулін, клінічні калькулятори та онлайн консультації.">
+  <meta name="keywords" content="нефролог, хронічна хвороба нирок, ХХН, уромодулін, біомаркери нефрону, калькулятор eGFR, nephrologist, CKD, uromodulin">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://kidney.pp.ua/">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="Dr Lidiia Denova | Nephrologist">
+  <meta property="og:description" content="Хронічна хвороба нирок, біомаркери нефрону, уромодулін, клінічні калькулятори та онлайн консультації.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kidney.pp.ua/">
 
-<title>Dr Lidiia Denova | Nephrologist</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-<meta name="description" content="Dr Lidiia Denova – nephrologist, CKD researcher, biomarkers, uromodulin, nephrology calculators and online consultation.">
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #0f172a 0%, #111827 100%);
+      color: white;
+      line-height: 1.6;
+    }
 
-<style>
+    header {
+      background: linear-gradient(135deg, #020617 0%, #0f172a 100%);
+      padding: 56px 24px 44px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
 
-body{
-margin:0;
-font-family:Arial,Helvetica,sans-serif;
-background:#0f172a;
-color:white;
-}
+    h1 {
+      margin: 0;
+      font-size: 44px;
+      line-height: 1.1;
+    }
 
-header{
-background:#020617;
-padding:40px;
-text-align:center;
-}
+    .subtitle {
+      color: #94a3b8;
+      margin-top: 14px;
+      font-size: 18px;
+    }
 
-h1{
-margin:0;
-font-size:42px;
-}
+    .intro {
+      max-width: 920px;
+      margin: 28px auto 0;
+      color: #dbeafe;
+      font-size: 17px;
+    }
 
-.subtitle{
-color:#94a3b8;
-margin-top:10px;
-}
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 40px 20px 60px;
+    }
 
-.container{
-max-width:1100px;
-margin:auto;
-padding:40px;
-}
+    .hero-buttons {
+      margin-top: 26px;
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
 
-.grid{
-display:grid;
-grid-template-columns:1fr 1fr 1fr;
-gap:25px;
-}
+    .button {
+      background: #38bdf8;
+      color: #0f172a;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+    }
 
-.card{
-background:#1e293b;
-padding:30px;
-border-radius:15px;
-}
+    .button.secondary {
+      background: transparent;
+      color: #cbd5e1;
+      border: 1px solid rgba(255,255,255,0.18);
+    }
 
-.card h2{
-margin-top:0;
-color:#38bdf8;
-}
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 10px;
+    }
 
-.section{
-margin-top:50px;
-}
+    .card {
+      background: rgba(30, 41, 59, 0.95);
+      padding: 28px;
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
 
-.button{
-background:#38bdf8;
-border:none;
-padding:12px 20px;
-border-radius:8px;
-cursor:pointer;
-font-size:16px;
-}
+    .card h2,
+    .section h2 {
+      margin-top: 0;
+      color: #38bdf8;
+    }
 
-footer{
-margin-top:60px;
-padding:20px;
-background:#020617;
-text-align:center;
-color:#94a3b8;
-}
+    .section {
+      margin-top: 42px;
+      background: rgba(30, 41, 59, 0.82);
+      padding: 30px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.16);
+    }
 
-input{
-padding:10px;
-margin:5px;
-border-radius:6px;
-border:none;
-}
+    ul {
+      padding-left: 20px;
+      margin-bottom: 0;
+    }
 
-.calc{
-margin-top:15px;
-}
+    li {
+      margin-bottom: 8px;
+    }
 
-.result{
-font-size:20px;
-margin-top:10px;
-color:#38bdf8;
-}
+    .calc {
+      margin-top: 18px;
+    }
 
-</style>
+    .calc-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
 
+    input,
+    select {
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      min-width: 190px;
+      font-size: 15px;
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+
+    .result {
+      font-size: 22px;
+      margin-top: 16px;
+      color: #38bdf8;
+      font-weight: 700;
+    }
+
+    .contact-box {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .small-note {
+      color: #94a3b8;
+      font-size: 14px;
+      margin-top: 14px;
+    }
+
+    footer {
+      margin-top: 60px;
+      padding: 24px;
+      background: #020617;
+      text-align: center;
+      color: #94a3b8;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    @media (max-width: 900px) {
+      .grid,
+      .contact-box {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      .intro {
+        font-size: 16px;
+      }
+
+      .section,
+      .card {
+        padding: 22px;
+      }
+
+      .calc-row {
+        flex-direction: column;
+      }
+
+      input,
+      select {
+        width: 100%;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Physician",
+    "name": "Dr Lidiia Denova",
+    "url": "https://kidney.pp.ua",
+    "medicalSpecialty": "Nephrology",
+    "description": "Nephrologist specializing in early diagnosis of chronic kidney disease, nephron biomarkers and metabolic risk factors.",
+    "email": "kidney.help.ua@gmail.com",
+    "areaServed": "Europe",
+    "knowsAbout": [
+      "Chronic kidney disease",
+      "Uromodulin",
+      "Nephron biomarkers",
+      "CKD progression",
+      "Nephrology calculators"
+    ]
+  }
+  </script>
 </head>
-
 <body>
 
-<header>
-
-<h1>Dr Lidiia Denova</h1>
-
-<div class="subtitle">
-Nephrologist • CKD Researcher • Biomarkers • Digital nephrology tools
-</div>
-
-</header>
-
-
-<div class="container">
-
-
-<div class="grid">
-
-<div class="card">
-
-<h2>Focus</h2>
-
-<ul>
-<li>Chronic kidney disease (CKD 1–3)</li>
-<li>Nephron biomarkers</li>
-<li>Uromodulin profile</li>
-<li>Metabolic risk factors</li>
-<li>Early CKD detection</li>
-</ul>
-
-</div>
-
-
-<div class="card">
-
-<h2>Digital tools</h2>
-
-<ul>
-<li>eGFR calculator</li>
-<li>ACR calculator</li>
-<li>KDIGO CKD stage</li>
-<li>Uromodulin index</li>
-<li>CKD metabolic risk</li>
-</ul>
-
-</div>
-
-
-<div class="card">
-
-<h2>Research</h2>
-
-<ul>
-<li>Uromodulin biomarkers</li>
-<li>Metabolic profile in CKD</li>
-<li>CKD progression models</li>
-<li>Digital nephrology tools</li>
-</ul>
-
-</div>
-
-</div>
-
-
-<div class="section">
-
-<h2>eGFR calculator</h2>
-
-<p>Simple CKD-EPI estimation (demo version)</p>
-
-<div class="calc">
-
-<input id="creatinine" placeholder="Creatinine (µmol/L)">
-
-<input id="age" placeholder="Age">
-
-<select id="sex">
-<option value="female">Female</option>
-<option value="male">Male</option>
-</select>
-
-<br><br>
-
-<button class="button" onclick="calc()">Calculate</button>
-
-<div class="result" id="result"></div>
-
-</div>
-
-</div>
-
-
-<div class="section">
-
-<h2>Online consultation</h2>
-
-<p>
-
-Remote consultation regarding:
-
-</p>
-
-<ul>
-
-<li>CKD risk</li>
-
-<li>interpretation of kidney tests</li>
-
-<li>nephrology diagnostics</li>
-
-</ul>
-
-<p>
-
-Contact:
-
-</p>
-
-<b>
-
-kidney.help.ua@gmail.com
-
-</b>
-
-</div>
-
-
-</div>
-
-
-<footer>
-
-kidney.pp.ua
-
-</footer>
-
-
-<script>
-
-function calc(){
-
-let cr = document.getElementById("creatinine").value
-
-let age = document.getElementById("age").value
-
-let sex = document.getElementById("sex").value
-
-cr = cr / 88.4
-
-let egfr = 141 * Math.pow(Math.min(cr/0.7,1),-0.329) * Math.pow(Math.max(cr/0.7,1),-1.209) * Math.pow(0.993,age)
-
-if(sex==="female") egfr *= 1.018
-
-document.getElementById("result").innerHTML = "eGFR ≈ " + egfr.toFixed(1)
-
-}
-
-</script>
+  <header>
+    <h1>Dr Lidiia Denova</h1>
+    <div class="subtitle">
+      Nephrologist • CKD early diagnostics • Nephron biomarkers • Digital nephrology tools
+    </div>
+
+    <div class="intro">
+      <p>
+        Лідія Денова — лікар-нефролог, що спеціалізується на ранній діагностиці
+        хронічної хвороби нирок, біомаркерах нефрону та метаболічних факторах
+        ризику прогресування ХХН.
+      </p>
+      <p>
+        На сайті представлено матеріали про ранню діагностику хронічної хвороби
+        нирок, біомаркери нефрону, уромодулін, метаболічні фактори ризику та
+        клінічні інструменти для нефрологічної практики.
+      </p>
+      <p>
+        Також на сайті доступні клінічні калькулятори та інформація щодо онлайн консультацій.
+      </p>
+    </div>
+
+    <div class="hero-buttons">
+      <a class="button" href="#consultation">Онлайн консультація</a>
+      <a class="button secondary" href="#calculator">Калькулятор eGFR</a>
+      <a class="button secondary" href="#contact">Контакти</a>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <div class="grid">
+      <div class="card">
+        <h2>Focus</h2>
+        <ul>
+          <li>Chronic kidney disease (CKD 1–3)</li>
+          <li>Nephron biomarkers</li>
+          <li>Uromodulin profile</li>
+          <li>Metabolic risk factors</li>
+          <li>Early CKD detection</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Digital tools</h2>
+        <ul>
+          <li>eGFR calculator</li>
+          <li>ACR calculator</li>
+          <li>KDIGO CKD stage</li>
+          <li>Uromodulin index</li>
+          <li>CKD metabolic risk</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Research</h2>
+        <ul>
+          <li>Uromodulin biomarkers</li>
+          <li>Metabolic profile in CKD</li>
+          <li>CKD progression models</li>
+          <li>Digital nephrology tools</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section" id="calculator">
+      <h2>eGFR calculator</h2>
+      <p>Simple CKD-EPI estimation (demo version)</p>
+
+      <div class="calc">
+        <div class="calc-row">
+          <input id="creatinine" type="number" step="0.1" placeholder="Creatinine (µmol/L)">
+          <input id="age" type="number" step="1" placeholder="Age">
+          <select id="sex">
+            <option value="female">Female</option>
+            <option value="male">Male</option>
+          </select>
+        </div>
+
+        <button class="button" onclick="calcEgfr()">Calculate</button>
+        <div class="result" id="result"></div>
+        <div class="small-note">
+          Demo formula. Later we can add full CKD-EPI 2021, ACR and KDIGO staging.
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>About this website</h2>
+      <p>
+        This website is being developed as a nephrology platform focused on chronic kidney
+        disease, nephron biomarkers, uromodulin, metabolic risk factors and practical
+        clinical tools for nephrology.
+      </p>
+      <p>
+        Future sections may include additional calculators, research materials, online
+        consultation workflow and digital tools for clinical and scientific use.
+      </p>
+    </div>
+
+    <div class="section" id="consultation">
+      <h2>Online consultation</h2>
+      <p>Remote consultation may include:</p>
+      <ul>
+        <li>interpretation of kidney function tests</li>
+        <li>assessment of CKD risk</li>
+        <li>guidance on further nephrology diagnostics</li>
+        <li>discussion of laboratory markers and nephrology follow-up</li>
+      </ul>
+    </div>
+
+    <div class="section" id="contact">
+      <h2>Contact</h2>
+      <div class="contact-box">
+        <div class="card">
+          <h2 style="font-size:22px;">Email</h2>
+          <p><strong>kidney.help.ua@gmail.com</strong></p>
+          <p class="small-note">Main contact for website communication and consultation requests.</p>
+        </div>
+
+        <div class="card">
+          <h2 style="font-size:22px;">Coming soon</h2>
+          <ul>
+            <li>ACR calculator</li>
+            <li>KDIGO CKD staging</li>
+            <li>Uromodulin index</li>
+            <li>UA/EN full version</li>
+            <li>Extended research section</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    © 2026 KidneyHelp • Dr Lidiia Denova • Nephrology · CKD · Biomarkers
+  </footer>
+
+  <script>
+    function calcEgfr() {
+      let cr = parseFloat(document.getElementById("creatinine").value);
+      let age = parseFloat(document.getElementById("age").value);
+      let sex = document.getElementById("sex").value;
+      let result = document.getElementById("result");
+
+      if (isNaN(cr) || isNaN(age) || cr <= 0 || age <= 0) {
+        result.innerHTML = "Please enter valid creatinine and age values.";
+        return;
+      }
+
+      cr = cr / 88.4;
+
+      let k = sex === "female" ? 0.7 : 0.9;
+      let a = sex === "female" ? -0.329 : -0.411;
+      let sexFactor = sex === "female" ? 1.018 : 1.0;
+
+      let egfr =
+        141 *
+        Math.pow(Math.min(cr / k, 1), a) *
+        Math.pow(Math.max(cr / k, 1), -1.209) *
+        Math.pow(0.993, age) *
+        sexFactor;
+
+      result.innerHTML = "eGFR ≈ " + egfr.toFixed(1) + " ml/min/1.73 m²";
+    }
+  </script>
 
 </body>
 </html>
