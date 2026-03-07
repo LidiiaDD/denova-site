@@ -1,14 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
 
-<url>
-<loc>https://kidney.pp.ua/</loc>
-<priority>1.0</priority>
-</url>
+  <url>
+    <loc>https://kidney.pp.ua/</loc>
+    <priority>1.0</priority>
+  </url>
 
-<url>
-<loc>https://kidney.pp.ua/publications.html</loc>
-<priority>0.8</priority>
-</url>
+  <url>
+    <loc>https://kidney.pp.ua/publications.html</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://kidney.pp.ua/#focus</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://kidney.pp.ua/#calculator</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://kidney.pp.ua/#consultation</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://kidney.pp.ua/#profiles</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://kidney.pp.ua/#archive</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://kidney.pp.ua/publications/thesis/denova_ckd_uromodulin_phd_thesis.pdf</loc>
+    <priority>0.9</priority>
+  </url>
 
 </urlset>
