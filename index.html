@@ -4,13 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dr Lidiia Denova | Nephrologist</title>
-  <meta name="description" content="Dr Lidiia Denova — лікар-нефролог. Хронічна хвороба нирок, біомаркери нефрону, уромодулін, клінічні калькулятори та онлайн консультації.">
-  <meta name="keywords" content="нефролог, хронічна хвороба нирок, ХХН, уромодулін, біомаркери нефрону, калькулятор eGFR, nephrologist, CKD, uromodulin">
+
+  <meta name="description" content="Dr Lidiia Denova — лікар-нефролог. Хронічна хвороба нирок, біомаркери нефрону, уромодулін, клінічні калькулятори, наукові профілі та онлайн консультації.">
+  <meta name="keywords" content="нефролог, хронічна хвороба нирок, ХХН, уромодулін, біомаркери нефрону, nephrologist, CKD, uromodulin, eGFR">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://kidney.pp.ua/">
+  <link rel="author" href="https://orcid.org/0000-0002-5678-5885">
 
   <meta property="og:title" content="Dr Lidiia Denova | Nephrologist">
-  <meta property="og:description" content="Хронічна хвороба нирок, біомаркери нефрону, уромодулін, клінічні калькулятори та онлайн консультації.">
+  <meta property="og:description" content="Chronic kidney disease, nephron biomarkers, uromodulin, clinical calculators and online consultation.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://kidney.pp.ua/">
 
@@ -19,44 +21,113 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(180deg, #0f172a 0%, #111827 100%);
-      color: white;
-      line-height: 1.6;
+      background: linear-gradient(180deg, #050b1f 0%, #0f1c3c 100%);
+      color: #ffffff;
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(2, 8, 23, 0.88);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      font-weight: 700;
+      font-size: 20px;
+      color: #ffffff;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: #cbd5e1;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: #38bdf8;
+    }
+
+    .lang-toggle {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .lang-btn {
+      border: 1px solid rgba(255,255,255,0.16);
+      background: transparent;
+      color: #cbd5e1;
+      padding: 8px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .lang-btn.active {
+      background: #38bdf8;
+      color: #08111f;
+      border-color: #38bdf8;
     }
 
     header {
-      background: linear-gradient(135deg, #020617 0%, #0f172a 100%);
-      padding: 56px 24px 44px;
+      background: linear-gradient(135deg, #020617 0%, #061433 100%);
+      padding: 64px 24px 48px;
       text-align: center;
       border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
     h1 {
       margin: 0;
-      font-size: 44px;
+      font-size: 46px;
       line-height: 1.1;
     }
 
     .subtitle {
       color: #94a3b8;
-      margin-top: 14px;
+      margin-top: 16px;
       font-size: 18px;
     }
 
     .intro {
-      max-width: 920px;
-      margin: 28px auto 0;
-      color: #dbeafe;
+      max-width: 960px;
+      margin: 30px auto 0;
+      color: #e2e8f0;
       font-size: 17px;
-    }
-
-    .container {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 40px 20px 60px;
     }
 
     .hero-buttons {
@@ -69,80 +140,87 @@
 
     .button {
       background: #38bdf8;
-      color: #0f172a;
+      color: #08111f;
       border: none;
-      padding: 12px 20px;
-      border-radius: 10px;
+      padding: 13px 22px;
+      border-radius: 12px;
       cursor: pointer;
       font-size: 16px;
       font-weight: 700;
-      text-decoration: none;
       display: inline-block;
+      transition: 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      opacity: 0.95;
     }
 
     .button.secondary {
       background: transparent;
-      color: #cbd5e1;
-      border: 1px solid rgba(255,255,255,0.18);
+      color: #e2e8f0;
+      border: 1px solid rgba(255,255,255,0.16);
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 42px 20px 60px;
     }
 
     .grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
-      margin-top: 10px;
+    }
+
+    .card,
+    .section {
+      background: rgba(30, 41, 59, 0.96);
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.16);
     }
 
     .card {
-      background: rgba(30, 41, 59, 0.95);
-      padding: 28px;
-      border-radius: 18px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
-      border: 1px solid rgba(255,255,255,0.06);
+      padding: 30px;
+    }
+
+    .section {
+      margin-top: 28px;
+      padding: 32px;
     }
 
     .card h2,
     .section h2 {
       margin-top: 0;
       color: #38bdf8;
-    }
-
-    .section {
-      margin-top: 42px;
-      background: rgba(30, 41, 59, 0.82);
-      padding: 30px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.06);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.16);
+      font-size: 26px;
     }
 
     ul {
-      padding-left: 20px;
+      padding-left: 24px;
       margin-bottom: 0;
     }
 
     li {
-      margin-bottom: 8px;
-    }
-
-    .calc {
-      margin-top: 18px;
+      margin-bottom: 9px;
     }
 
     .calc-row {
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
 
     input,
     select {
-      padding: 12px;
-      border-radius: 10px;
+      padding: 13px 14px;
+      border-radius: 12px;
       border: none;
-      min-width: 190px;
-      font-size: 15px;
+      min-width: 220px;
+      font-size: 16px;
       background: #e2e8f0;
       color: #0f172a;
     }
@@ -154,53 +232,81 @@
       font-weight: 700;
     }
 
-    .contact-box {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-    }
-
     .small-note {
       color: #94a3b8;
       font-size: 14px;
-      margin-top: 14px;
+      margin-top: 12px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .profiles-grid,
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .archive-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
     }
 
     footer {
       margin-top: 60px;
-      padding: 24px;
+      padding: 26px;
       background: #020617;
       text-align: center;
       color: #94a3b8;
       border-top: 1px solid rgba(255,255,255,0.08);
     }
 
-    @media (max-width: 900px) {
+    .lang-ua {
+      display: block;
+    }
+
+    .lang-en {
+      display: none;
+    }
+
+    @media (max-width: 980px) {
       .grid,
-      .contact-box {
+      .two-col,
+      .profiles-grid,
+      .social-grid,
+      .archive-grid {
         grid-template-columns: 1fr;
       }
 
       h1 {
-        font-size: 34px;
+        font-size: 36px;
+      }
+
+      .subtitle {
+        font-size: 16px;
       }
 
       .intro {
         font-size: 16px;
       }
 
-      .section,
-      .card {
-        padding: 22px;
+      .nav {
+        align-items: flex-start;
       }
 
-      .calc-row {
-        flex-direction: column;
+      .nav-links {
+        width: 100%;
       }
 
       input,
       select {
         width: 100%;
+        min-width: unset;
       }
     }
   </style>
@@ -215,6 +321,11 @@
     "description": "Nephrologist specializing in early diagnosis of chronic kidney disease, nephron biomarkers and metabolic risk factors.",
     "email": "kidney.help.ua@gmail.com",
     "areaServed": "Europe",
+    "sameAs": [
+      "https://orcid.org/0000-0002-5678-5885",
+      "https://scholar.google.com/citations?user=5RQlWBIAAAAJ&hl=en",
+      "https://ua.h-index.com/uk/author/58677218100"
+    ],
     "knowsAbout": [
       "Chronic kidney disease",
       "Uromodulin",
@@ -227,13 +338,37 @@
 </head>
 <body>
 
+  <div class="topbar">
+    <div class="nav">
+      <div class="brand">KidneyHelp</div>
+
+      <div class="nav-links">
+        <a href="#focus">Focus</a>
+        <a href="#calculator">Calculator</a>
+        <a href="#consultation">Consultation</a>
+        <a href="#profiles">Profiles</a>
+        <a href="#archive">PDF archive</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="lang-toggle">
+        <button class="lang-btn active" id="btn-ua" onclick="setLanguage('ua')">UA</button>
+        <button class="lang-btn" id="btn-en" onclick="setLanguage('en')">EN</button>
+      </div>
+    </div>
+  </div>
+
   <header>
     <h1>Dr Lidiia Denova</h1>
-    <div class="subtitle">
+
+    <div class="subtitle lang-ua">
+      Лікар-нефролог • Рання діагностика ХХН • Біомаркери нефрону • Digital nephrology tools
+    </div>
+    <div class="subtitle lang-en">
       Nephrologist • CKD early diagnostics • Nephron biomarkers • Digital nephrology tools
     </div>
 
-    <div class="intro">
+    <div class="intro lang-ua">
       <p>
         Лідія Денова — лікар-нефролог, що спеціалізується на ранній діагностиці
         хронічної хвороби нирок, біомаркерах нефрону та метаболічних факторах
@@ -249,24 +384,48 @@
       </p>
     </div>
 
+    <div class="intro lang-en">
+      <p>
+        Dr Lidiia Denova is a nephrologist specializing in early diagnosis of chronic
+        kidney disease, nephron biomarkers and metabolic risk factors of CKD progression.
+      </p>
+      <p>
+        This website provides materials on early diagnosis of chronic kidney disease,
+        nephron biomarkers, uromodulin, metabolic risk factors and clinical tools for
+        nephrology practice.
+      </p>
+      <p>
+        Clinical calculators and information about online consultations are also available on this website.
+      </p>
+    </div>
+
     <div class="hero-buttons">
-      <a class="button" href="#consultation">Онлайн консультація</a>
-      <a class="button secondary" href="#calculator">Калькулятор eGFR</a>
-      <a class="button secondary" href="#contact">Контакти</a>
+      <a class="button" href="#consultation">
+        <span class="lang-ua">Онлайн консультація</span>
+        <span class="lang-en">Online consultation</span>
+      </a>
+      <a class="button secondary" href="#calculator">
+        <span class="lang-ua">Калькулятор eGFR</span>
+        <span class="lang-en">eGFR calculator</span>
+      </a>
+      <a class="button secondary" href="#contact">
+        <span class="lang-ua">Контакти</span>
+        <span class="lang-en">Contact</span>
+      </a>
     </div>
   </header>
 
   <div class="container">
 
-    <div class="grid">
+    <div class="grid" id="focus">
       <div class="card">
         <h2>Focus</h2>
         <ul>
-          <li>Chronic kidney disease (CKD 1–3)</li>
-          <li>Nephron biomarkers</li>
-          <li>Uromodulin profile</li>
-          <li>Metabolic risk factors</li>
-          <li>Early CKD detection</li>
+          <li><span class="lang-ua">Хронічна хвороба нирок (ХХН 1–3 стадії)</span><span class="lang-en">Chronic kidney disease (CKD 1–3)</span></li>
+          <li><span class="lang-ua">Біомаркери нефрону</span><span class="lang-en">Nephron biomarkers</span></li>
+          <li><span class="lang-ua">Уромодуліновий профіль</span><span class="lang-en">Uromodulin profile</span></li>
+          <li><span class="lang-ua">Метаболічні фактори ризику</span><span class="lang-en">Metabolic risk factors</span></li>
+          <li><span class="lang-ua">Рання діагностика ХХН</span><span class="lang-en">Early CKD detection</span></li>
         </ul>
       </div>
 
@@ -284,71 +443,177 @@
       <div class="card">
         <h2>Research</h2>
         <ul>
-          <li>Uromodulin biomarkers</li>
-          <li>Metabolic profile in CKD</li>
-          <li>CKD progression models</li>
-          <li>Digital nephrology tools</li>
+          <li><span class="lang-ua">Біомаркери уромодуліну</span><span class="lang-en">Uromodulin biomarkers</span></li>
+          <li><span class="lang-ua">Метаболічний профіль при ХХН</span><span class="lang-en">Metabolic profile in CKD</span></li>
+          <li><span class="lang-ua">Моделі прогресування ХХН</span><span class="lang-en">CKD progression models</span></li>
+          <li><span class="lang-ua">Цифрові інструменти нефрології</span><span class="lang-en">Digital nephrology tools</span></li>
         </ul>
       </div>
     </div>
 
     <div class="section" id="calculator">
       <h2>eGFR calculator</h2>
-      <p>Simple CKD-EPI estimation (demo version)</p>
+      <p class="lang-ua">Проста demo-версія розрахунку CKD-EPI.</p>
+      <p class="lang-en">Simple demo version of CKD-EPI estimation.</p>
 
-      <div class="calc">
-        <div class="calc-row">
-          <input id="creatinine" type="number" step="0.1" placeholder="Creatinine (µmol/L)">
-          <input id="age" type="number" step="1" placeholder="Age">
-          <select id="sex">
-            <option value="female">Female</option>
-            <option value="male">Male</option>
-          </select>
+      <div class="calc-row">
+        <input id="creatinine" type="number" step="0.1" placeholder="Creatinine (µmol/L)">
+        <input id="age" type="number" step="1" placeholder="Age">
+        <select id="sex">
+          <option value="female">Female</option>
+          <option value="male">Male</option>
+        </select>
+      </div>
+
+      <button class="button" onclick="calcEgfr()">Calculate</button>
+      <div class="result" id="result"></div>
+      <div class="small-note lang-ua">Пізніше можна додати CKD-EPI 2021, ACR та KDIGO staging.</div>
+      <div class="small-note lang-en">Later we can add CKD-EPI 2021, ACR and KDIGO staging.</div>
+    </div>
+
+    <div class="section">
+      <h2 class="lang-ua">Про сайт</h2>
+      <h2 class="lang-en">About this website</h2>
+
+      <p class="lang-ua">
+        Сайт розвивається як нефрологічна платформа, присвячена ХХН, біомаркерам нефрону,
+        уромодуліну, метаболічним факторам ризику та практичним клінічним інструментам.
+      </p>
+      <p class="lang-en">
+        This website is being developed as a nephrology platform focused on chronic kidney disease,
+        nephron biomarkers, uromodulin, metabolic risk factors and practical clinical tools.
+      </p>
+
+      <p class="lang-ua">
+        У подальшому тут можуть з’явитися додаткові калькулятори, наукові матеріали,
+        розширений розділ досліджень та цифрові інструменти для клінічного й наукового використання.
+      </p>
+      <p class="lang-en">
+        Future sections may include additional calculators, research materials,
+        an expanded research section and digital tools for clinical and scientific use.
+      </p>
+    </div>
+
+    <div class="section" id="consultation">
+      <h2 class="lang-ua">Онлайн консультація</h2>
+      <h2 class="lang-en">Online consultation</h2>
+
+      <p class="lang-ua">Дистанційна консультація може включати:</p>
+      <p class="lang-en">Remote consultation may include:</p>
+
+      <ul>
+        <li><span class="lang-ua">інтерпретацію показників функції нирок</span><span class="lang-en">interpretation of kidney function tests</span></li>
+        <li><span class="lang-ua">оцінку ризику прогресування ХХН</span><span class="lang-en">assessment of CKD risk</span></li>
+        <li><span class="lang-ua">рекомендації щодо подальшої нефрологічної діагностики</span><span class="lang-en">guidance on further nephrology diagnostics</span></li>
+        <li><span class="lang-ua">обговорення лабораторних маркерів та подальшого нефрологічного спостереження</span><span class="lang-en">discussion of laboratory markers and nephrology follow-up</span></li>
+      </ul>
+    </div>
+
+    <div class="section" id="profiles">
+      <h2 class="lang-ua">Наукові профілі</h2>
+      <h2 class="lang-en">Academic profiles</h2>
+
+      <div class="profiles-grid">
+        <div class="card">
+          <h2 style="font-size:22px;">ORCID</h2>
+          <p><strong>0000-0002-5678-5885</strong></p>
+          <a class="button secondary" href="https://orcid.org/0000-0002-5678-5885" target="_blank">Open ORCID</a>
         </div>
 
-        <button class="button" onclick="calcEgfr()">Calculate</button>
-        <div class="result" id="result"></div>
-        <div class="small-note">
-          Demo formula. Later we can add full CKD-EPI 2021, ACR and KDIGO staging.
+        <div class="card">
+          <h2 style="font-size:22px;">Google Scholar</h2>
+          <a class="button secondary" href="https://scholar.google.com/citations?user=5RQlWBIAAAAJ&hl=en" target="_blank">Open Google Scholar</a>
+        </div>
+
+        <div class="card">
+          <h2 style="font-size:22px;">Scopus / h-index</h2>
+          <a class="button secondary" href="https://ua.h-index.com/uk/author/58677218100" target="_blank">View metrics</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="archive">
+      <h2 class="lang-ua">PDF архів</h2>
+      <h2 class="lang-en">PDF archive</h2>
+
+      <div class="archive-grid">
+        <div class="card">
+          <h2 style="font-size:22px;" class="lang-ua">Наукові статті</h2>
+          <h2 style="font-size:22px;" class="lang-en">Scientific articles</h2>
+
+          <p class="lang-ua">
+            На сайті доступний архів PDF-файлів із науковими публікаціями.
+          </p>
+          <p class="lang-en">
+            A PDF archive of scientific publications is available on the website.
+          </p>
+
+          <a class="button secondary" href="18.pdf" target="_blank">
+            <span class="lang-ua">Відкрити приклад PDF</span>
+            <span class="lang-en">Open example PDF</span>
+          </a>
+        </div>
+
+        <div class="card">
+          <h2 style="font-size:22px;" class="lang-ua">Патенти</h2>
+          <h2 style="font-size:22px;" class="lang-en">Patents</h2>
+
+          <p class="lang-ua">
+            Зацікавлені відвідувачі можуть переглядати PDF матеріали публікацій та патентів.
+          </p>
+          <p class="lang-en">
+            Visitors can review PDF materials of publications and patents.
+          </p>
+
+          <div class="small-note lang-ua">
+            Після структурування архіву можна додати окрему кнопку для патентів.
+          </div>
+          <div class="small-note lang-en">
+            A separate patent button can be added after the archive is fully organized.
+          </div>
         </div>
       </div>
     </div>
 
     <div class="section">
-      <h2>About this website</h2>
-      <p>
-        This website is being developed as a nephrology platform focused on chronic kidney
-        disease, nephron biomarkers, uromodulin, metabolic risk factors and practical
-        clinical tools for nephrology.
-      </p>
-      <p>
-        Future sections may include additional calculators, research materials, online
-        consultation workflow and digital tools for clinical and scientific use.
-      </p>
-    </div>
+      <h2 class="lang-ua">Соціальні мережі</h2>
+      <h2 class="lang-en">Social media</h2>
 
-    <div class="section" id="consultation">
-      <h2>Online consultation</h2>
-      <p>Remote consultation may include:</p>
-      <ul>
-        <li>interpretation of kidney function tests</li>
-        <li>assessment of CKD risk</li>
-        <li>guidance on further nephrology diagnostics</li>
-        <li>discussion of laboratory markers and nephrology follow-up</li>
-      </ul>
-    </div>
-
-    <div class="section" id="contact">
-      <h2>Contact</h2>
-      <div class="contact-box">
+      <div class="social-grid">
         <div class="card">
-          <h2 style="font-size:22px;">Email</h2>
-          <p><strong>kidney.help.ua@gmail.com</strong></p>
-          <p class="small-note">Main contact for website communication and consultation requests.</p>
+          <h2 style="font-size:22px;">Instagram</h2>
+          <a class="button secondary" href="https://instagram.com/kidney.help" target="_blank">Open Instagram</a>
         </div>
 
         <div class="card">
-          <h2 style="font-size:22px;">Coming soon</h2>
+          <h2 style="font-size:22px;">Facebook</h2>
+          <a class="button secondary" href="https://facebook.com/" target="_blank">Open Facebook</a>
+        </div>
+
+        <div class="card">
+          <h2 style="font-size:22px;" class="lang-ua">Оновлення</h2>
+          <h2 style="font-size:22px;" class="lang-en">Updates</h2>
+          <p class="lang-ua">Соціальні профілі можна використовувати для новин, анонсів та освітніх матеріалів.</p>
+          <p class="lang-en">Social profiles can be used for updates, announcements and educational materials.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="contact">
+      <h2 class="lang-ua">Контакти</h2>
+      <h2 class="lang-en">Contact</h2>
+
+      <div class="two-col">
+        <div class="card">
+          <h2 style="font-size:22px;">Email</h2>
+          <p><strong>kidney.help.ua@gmail.com</strong></p>
+          <p class="small-note lang-ua">Основний контакт для комунікації через сайт та запитів щодо консультацій.</p>
+          <p class="small-note lang-en">Main contact for website communication and consultation requests.</p>
+        </div>
+
+        <div class="card">
+          <h2 style="font-size:22px;" class="lang-ua">Найближчим часом</h2>
+          <h2 style="font-size:22px;" class="lang-en">Coming soon</h2>
           <ul>
             <li>ACR calculator</li>
             <li>KDIGO CKD staging</li>
@@ -393,6 +658,34 @@
 
       result.innerHTML = "eGFR ≈ " + egfr.toFixed(1) + " ml/min/1.73 m²";
     }
+
+    function setLanguage(lang) {
+      const ua = document.querySelectorAll('.lang-ua');
+      const en = document.querySelectorAll('.lang-en');
+      const btnUa = document.getElementById('btn-ua');
+      const btnEn = document.getElementById('btn-en');
+
+      if (lang === 'ua') {
+        ua.forEach(el => el.style.display = '');
+        en.forEach(el => el.style.display = 'none');
+        btnUa.classList.add('active');
+        btnEn.classList.remove('active');
+        document.documentElement.lang = 'uk';
+      } else {
+        ua.forEach(el => el.style.display = 'none');
+        en.forEach(el => el.style.display = '');
+        btnUa.classList.remove('active');
+        btnEn.classList.add('active');
+        document.documentElement.lang = 'en';
+      }
+
+      localStorage.setItem('siteLang', lang);
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const savedLang = localStorage.getItem('siteLang') || 'ua';
+      setLanguage(savedLang);
+    });
   </script>
 
 </body>
