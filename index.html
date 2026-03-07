@@ -929,6 +929,7 @@
     .single()
 
     let visits = data.value + 1
+    document.getElementById("totalVisits").innerText = visits
 
     await client
     .from("site_stats")
