@@ -289,12 +289,22 @@
       border-top: 1px solid rgba(255,255,255,0.08);
     }
 
-    .lang-ua {
-      display: block;
+    /* Language system */
+
+    body.lang-ua .lang-ua {
+      display: revert;
     }
 
-    .lang-en {
-      display: none;
+    body.lang-ua .lang-en {
+      display: none !important;
+    }
+
+    body.lang-en .lang-ua {
+      display: none !important;
+    }
+
+    body.lang-en .lang-en {
+      display: revert;
     }
 
     @media (max-width: 980px) {
