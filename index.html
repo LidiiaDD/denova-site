@@ -912,35 +912,123 @@
 
   </script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
   <script>
+  const supabaseUrl = "https://hfteojwsbhdjwkfqwqor.supabase.co";
+  const supabaseKey = "sb_publishable_AXyEJtGhjp5Y1JBqw9LXsw_rWPAX-BC";
 
-  const supabaseUrl = "https://hfteojwsbhdjwkfqwqor.supabase.co"
-  const supabaseKey = "sb_publishable_AXyEJtGhjp5Y1JBqw9LXsw_rWPAX-BC"
+  const client = supabase.createClient(supabaseUrl, supabaseKey);
 
-  const client = supabase.createClient(supabaseUrl, supabaseKey)
+  async function countVisit() {
+    const { data, error } = await client
+      .from("site_stats")
+      .select("value")
+      .eq("key", "total_visits")
+      .single();
 
-  async function countVisit(){
+    if (error || !data) {
+      console.error("Visit read error:", error);
+      return;
+    }
 
-    const { data } = await client
-    .from("site_stats")
-    .select("value")
-    .eq("key","total_visits")
-    .single()
+    const visits = Number(data.value || 0) + 1;
 
-    let visits = data.value + 1
-    document.getElementById("totalVisits").innerText = visits
+    document.getElementById("totalVisits").innerText = visits;
 
     await client
-    .from("site_stats")
-    .update({ value: visits })
-    .eq("key","total_visits")
-
+      .from("site_stats")
+      .update({ value: visits })
+      .eq("key", "total_visits");
   }
 
-  countVisit()
+  async function loadStats() {
+    const { data, error } = await client
+      .from("site_stats")
+      .select("key,value");
 
+    if (error || !data) {
+      console.error("Stats load error:", error);
+      return;
+    }
+
+    const stats = Object.fromEntries(data.map(row => [row.key, row.value]));
+
+    const totalVisitsEl = document.getElementById("totalVisits");
+    const pdfOpensEl = document.getElementById("pdfOpens");
+    const pdfDownloadsEl = document.getElementById("pdfDownloads");
+
+    if (totalVisitsEl) totalVisitsEl.innerText = stats.total_visits ?? 0;
+    if (pdfOpensEl) pdfOpensEl.innerText = stats.pdf_opens ?? 0;
+    if (pdfDownloadsEl) pdfDownloadsEl.innerText = stats.pdf_downloads ?? 0;
+  }
+
+  function setupPdfTracking() {
+    const pdfLinks = document.querySelectorAll('a[href$=".pdf"], a[href*=".pdf?"]');
+
+    pdfLinks.forEach(link => {
+      link.addEventListener("click", async () => {
+        const href = link.getAttribute("href") || "";
+        const fileName = href.split("/").pop().split("?")[0];
+
+        const isDownload =
+          link.hasAttribute("download") ||
+          (link.textContent || "").toLowerCase().includes("download") ||
+          (link.textContent || "").toLowerCase().includes("скач") ||
+          (link.textContent || "").toLowerCase().includes("завантаж");
+
+        const keyName = isDownload ? "pdf_downloads" : "pdf_opens";
+
+        const { data, error } = await client
+          .from("site_stats")
+          .select("value")
+          .eq("key", keyName)
+          .single();
+
+        if (error || !data) {
+          console.error("PDF stats read error:", error);
+          return;
+        }
+
+        const newValue = Number(data.value || 0) + 1;
+
+        await client
+          .from("site_stats")
+          .update({ value: newValue })
+          .eq("key", keyName);
+
+        const { data: fileRow } = await client
+          .from("pdf_stats")
+          .select("opens,downloads")
+          .eq("file_name", fileName)
+          .single();
+
+        if (fileRow) {
+          await client
+            .from("pdf_stats")
+            .update({
+              opens: isDownload ? fileRow.opens : Number(fileRow.opens || 0) + 1,
+              downloads: isDownload ? Number(fileRow.downloads || 0) + 1 : fileRow.downloads
+            })
+            .eq("file_name", fileName);
+        } else {
+          await client
+            .from("pdf_stats")
+            .insert([{
+              file_name: fileName,
+              opens: isDownload ? 0 : 1,
+              downloads: isDownload ? 1 : 0
+            }]);
+        }
+
+        await loadStats();
+      });
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", async () => {
+    await countVisit();
+    await loadStats();
+    setupPdfTracking();
+  });
   </script>
-
 </body>
 </html>
