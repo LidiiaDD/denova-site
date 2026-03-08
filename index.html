@@ -981,5 +981,42 @@
     setupPdfTracking();
   });
   </script>
-</body>
-</html>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <script>
+  const supabaseUrl = "https://hfteojwsbhdjwkfqwqor.supabase.co";
+  const supabaseKey = "sb_publishable_AXyEJtGhjp5Y1JBqw9LXsw_rWPAX-BC";
+
+  const client = window.supabase.createClient(supabaseUrl, supabaseKey);
+
+  function setupPdfTracking() {
+    const pdfLinks = document.querySelectorAll('a[href$=".pdf"], a[href*=".pdf?"]');
+
+    pdfLinks.forEach(link => {
+      link.addEventListener("click", async () => {
+
+        const text = (link.textContent || "").toLowerCase();
+
+        const isDownload =
+          link.hasAttribute("download") ||
+          text.includes("download") ||
+          text.includes("скач") ||
+          text.includes("завантаж");
+
+        const keyName = isDownload ? "pdf_downloads" : "pdf_opens";
+
+        await client.rpc("increment_pdf_stat", {
+          p_key: keyName
+        });
+
+      });
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    setupPdfTracking();
+  });
+  </script>
+
+  </body>
+  </html>
