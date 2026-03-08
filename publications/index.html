@@ -459,108 +459,58 @@
   
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
-    const supabaseUrl = "https://hfteojwsbhdjwkfqwqor.supabase.co";
-    const supabaseKey = "sb_publishable_AXyEJtGhjp5Y1JBqw9LXsw_rWPAX-BC";
-    const client = window.supabase.createClient(supabaseUrl, supabaseKey);
+  const supabaseUrl = "https://hfteojwsbhdjwkfqwqor.supabase.co";
+  const supabaseKey = "sb_publishable_AXyEJtGhjp5Y1JBqw9LXsw_rWPAX-BC";
+  const client = window.supabase.createClient(supabaseUrl, supabaseKey);
 
-    async function countVisit() {
-      const { error } = await client.rpc("increment_total_visits");
-      if (error) {
-        console.error("increment_total_visits error:", error);
-      }
+  async function countVisit() {
+    const { error } = await client.rpc("increment_total_visits");
+    if (error) {
+      console.error("increment_total_visits error:", error);
+    }
+  }
+
+  async function loadStats() {
+    const { data, error } = await client.rpc("get_site_stats");
+    if (error) {
+      console.error("get_site_stats error:", error);
+      return;
     }
 
-    async function loadStats() {
-      const { data, error } = await client.rpc("get_site_stats");
-      if (error) {
-        console.error("get_site_stats error:", error);
-        return;
-      }
+    const stats = Object.fromEntries((data || []).map(row => [row.key, row.value]));
 
-      const stats = Object.fromEntries((data || []).map(row => [row.key, row.value]));
+    const totalVisitsEl = document.getElementById("totalVisits");
+    const pdfOpensEl = document.getElementById("pdfOpens");
+    const pdfDownloadsEl = document.getElementById("pdfDownloads");
 
-      const totalVisitsEl = document.getElementById("totalVisits");
-      const pdfOpensEl = document.getElementById("pdfOpens");
-      const pdfDownloadsEl = document.getElementById("pdfDownloads");
+    if (totalVisitsEl) totalVisitsEl.textContent = stats.total_visits ?? 0;
+    if (pdfOpensEl) pdfOpensEl.textContent = stats.pdf_opens ?? 0;
+    if (pdfDownloadsEl) pdfDownloadsEl.textContent = stats.pdf_downloads ?? 0;
+  }
 
-      if (totalVisitsEl) totalVisitsEl.textContent = stats.total_visits ?? 0;
-      if (pdfOpensEl) pdfOpensEl.textContent = stats.pdf_opens ?? 0;
-      if (pdfDownloadsEl) pdfDownloadsEl.textContent = stats.pdf_downloads ?? 0;
-    }
+  function setupPdfTracking() {
+    const pdfLinks = document.querySelectorAll('a[href$=".pdf"], a[href*=".pdf?"]');
 
-    async function trackPdfAndOpen(link) {
-      const text = (link.textContent || "").toLowerCase();
-      const isDownload =
-        link.hasAttribute("download") ||
-        text.includes("download") ||
-        text.includes("скач") ||
-        text.includes("завантаж");
+    pdfLinks.forEach(link => {
+      link.addEventListener("click", function(e) {
+        e.preventDefault();
 
-      const keyName = isDownload ? "pdf_downloads" : "pdf_opens";
-      const href = link.getAttribute("href");
-      const target = link.getAttribute("target");
+        const href = this.getAttribute("href");
 
-      let newTab = null;
-
-      if (target === "_blank") {
-        newTab = window.open("about:blank", "_blank");
-      }
-
-      try {
-        const { data, error } = await client.rpc("increment_pdf_stat", {
-          p_key: keyName
+        client.rpc("increment_pdf_stat", {
+          p_key: "pdf_opens"
         });
 
-        if (error) {
-          console.error("increment_pdf_stat error:", error);
-        } else {
-          if (isDownload) {
-            const el = document.getElementById("pdfDownloads");
-            if (el) el.textContent = data ?? 0;
-          } else {
-            const el = document.getElementById("pdfOpens");
-            if (el) el.textContent = data ?? 0;
-          }
-        }
-      } catch (e) {
-        console.error("PDF tracking error:", e);
-      }
-
-      if (newTab) {
-        newTab.location.href = href;
-      } else {
-        window.location.href = href;
-      }
-    }
-
-    function setupPdfTracking() {
-
-      const pdfLinks = document.querySelectorAll('a[href$=".pdf"], a[href*=".pdf?"]');
-
-      pdfLinks.forEach(link => {
-
-        link.addEventListener("click", function(e){
-
-          e.preventDefault();
-
-          const href = this.getAttribute("href");
-
-          client.rpc("increment_pdf_stat", {
-            p_key: "pdf_opens"
-          });
-
-          window.open(href, "_blank");
-
-        });
-
+        window.open(href, "_blank");
       });
-
-    }
-    document.addEventListener("DOMContentLoaded", async () => {
-      await countVisit();
-      await loadStats();
-      setupPdfTracking();
     });
+  }
+
+  document.addEventListener("DOMContentLoaded", async () => {
+    await countVisit();
+    await loadStats();
+    setupPdfTracking();
+  });
   </script>
 </body>
 </html>
