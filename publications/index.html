@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Публікації | Dr Lidiia Denova</title>
+
+  <meta name="description" content="Архів наукових публікацій Dr Lidiia Denova у форматі PDF.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://kidney.pp.ua/publications/">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #050b1f 0%, #0f1c3c 100%);
+      color: #ffffff;
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(2, 8, 23, 0.88);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      font-weight: 700;
+      font-size: 20px;
+      color: #ffffff;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: #cbd5e1;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: #38bdf8;
+    }
+
+    .lang-toggle {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .lang-btn {
+      border: 1px solid rgba(255,255,255,0.16);
+      background: transparent;
+      color: #cbd5e1;
+      padding: 8px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .lang-btn.active {
+      background: #38bdf8;
+      color: #08111f;
+      border-color: #38bdf8;
+    }
+
+    header {
+      background: linear-gradient(135deg, #020617 0%, #061433 100%);
+      padding: 56px 24px 40px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 42px;
+      line-height: 1.1;
+    }
+
+    .subtitle {
+      color: #94a3b8;
+      margin-top: 14px;
+      font-size: 18px;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 40px 20px 60px;
+    }
+
+    .section {
+      background: rgba(30, 41, 59, 0.96);
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.16);
+      padding: 32px;
+      margin-bottom: 28px;
+    }
+
+    .section h2 {
+      margin-top: 0;
+      color: #38bdf8;
+      font-size: 26px;
+    }
+
+    .small-note {
+      color: #94a3b8;
+      font-size: 14px;
+      margin-top: 12px;
+    }
+
+    .button {
+      background: #38bdf8;
+      color: #08111f;
+      border: none;
+      padding: 13px 22px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 700;
+      display: inline-block;
+      transition: 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      opacity: 0.95;
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: #e2e8f0;
+      border: 1px solid rgba(255,255,255,0.16);
+    }
+
+    .impact-stats {
+      margin: 0 0 28px;
+      padding: 24px;
+      border-radius: 18px;
+      background: #f7f9fc;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    }
+
+    .impact-stats h2 {
+      margin: 0 0 18px;
+      font-size: 28px;
+      color: #0f172a;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .stat-card {
+      background: white;
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+    }
+
+    .stat-label {
+      font-size: 14px;
+      opacity: 0.75;
+      margin-bottom: 8px;
+      color: #334155;
+    }
+
+    .stat-value {
+      font-size: 30px;
+      font-weight: 700;
+      color: #000;
+    }
+
+    .pdf-list {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .pdf-link {
+      display: block;
+      text-align: center;
+      padding: 12px 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #e2e8f0;
+      font-size: 14px;
+      font-weight: 700;
+      background: rgba(255,255,255,0.02);
+      transition: 0.2s ease;
+    }
+
+    .pdf-link:hover {
+      border-color: #38bdf8;
+      color: #38bdf8;
+      transform: translateY(-1px);
+    }
+
+    .top-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    footer {
+      margin-top: 60px;
+      padding: 26px;
+      background: #020617;
+      text-align: center;
+      color: #94a3b8;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    body.lang-ua .lang-ua {
+      display: revert;
+    }
+
+    body.lang-ua .lang-en {
+      display: none !important;
+    }
+
+    body.lang-en .lang-ua {
+      display: none !important;
+    }
+
+    body.lang-en .lang-en {
+      display: revert;
+    }
+
+    @media (max-width: 980px) {
+      .stats-grid,
+      .pdf-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      .nav {
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .stats-grid,
+      .pdf-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body class="lang-ua">
+
+  <div class="topbar">
+    <div class="nav">
+      <div class="brand">KidneyHelp</div>
+
+      <div class="nav-links">
+        <a href="../index.html">
+          <span class="lang-ua">На головну</span>
+          <span class="lang-en">Home</span>
+        </a>
+        <a href="#articles">
+          <span class="lang-ua">Статті</span>
+          <span class="lang-en">Articles</span>
+        </a>
+        <a href="#thesis">
+          <span class="lang-ua">Дисертація</span>
+          <span class="lang-en">Thesis</span>
+        </a>
+        <a href="#patent">
+          <span class="lang-ua">Патент</span>
+          <span class="lang-en">Patent</span>
+        </a>
+      </div>
+
+      <div class="lang-toggle">
+        <button class="lang-btn active" id="btn-ua" onclick="setLanguage('ua')">UA</button>
+        <button class="lang-btn" id="btn-en" onclick="setLanguage('en')">EN</button>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <h1>
+      <span class="lang-ua">Наукові публікації</span>
+      <span class="lang-en">Scientific Publications</span>
+    </h1>
+
+    <div class="subtitle lang-ua">
+      Архів PDF-файлів Dr Lidiia Denova
+    </div>
+    <div class="subtitle lang-en">
+      PDF archive of Dr Lidiia Denova
+    </div>
+
+    <div class="top-actions">
+      <a class="button secondary" href="../index.html">
+        <span class="lang-ua">← Назад на головну</span>
+        <span class="lang-en">← Back to home</span>
+      </a>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <section id="site-stats" class="impact-stats">
+      <h2>Research Impact</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">Усього відвідувань</div>
+          <div class="stat-value" id="totalVisits">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">PDF відкрито</div>
+          <div class="stat-value" id="pdfOpens">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">PDF скачано</div>
+          <div class="stat-value" id="pdfDownloads">0</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="thesis">
+      <h2 class="lang-ua">Дисертація</h2>
+      <h2 class="lang-en">PhD Thesis</h2>
+
+      <p class="lang-ua">Повний текст дисертації у форматі PDF.</p>
+      <p class="lang-en">Full dissertation text in PDF format.</p>
+
+      <a class="button secondary" href="thesis/denova_ckd_uromodulin_phd_thesis.pdf" target="_blank">
+        <span class="lang-ua">Відкрити PDF дисертації</span>
+        <span class="lang-en">Open thesis PDF</span>
+      </a>
+    </section>
+
+    <section class="section" id="patent">
+      <h2 class="lang-ua">Патент</h2>
+      <h2 class="lang-en">Patent</h2>
+
+      <p class="lang-ua">Патент України на корисну модель №155375.</p>
+      <p class="lang-en">Ukrainian utility model patent No. 155375.</p>
+
+      <a class="button secondary" href="patents/patent_155375.pdf" target="_blank">
+        <span class="lang-ua">Відкрити PDF патенту</span>
+        <span class="lang-en">Open patent PDF</span>
+      </a>
+    </section>
+
+    <section class="section" id="articles">
+      <h2 class="lang-ua">Наукові статті</h2>
+      <h2 class="lang-en">Scientific Articles</h2>
+
+      <p class="lang-ua">Архів PDF-файлів статей.</p>
+      <p class="lang-en">Archive of article PDF files.</p>
+
+      <div class="pdf-list">
+        <a class="pdf-link" href="1.pdf" target="_blank">1.pdf</a>
+        <a class="pdf-link" href="2.pdf" target="_blank">2.pdf</a>
+        <a class="pdf-link" href="3.pdf" target="_blank">3.pdf</a>
+        <a class="pdf-link" href="4.pdf" target="_blank">4.pdf</a>
+        <a class="pdf-link" href="5.pdf" target="_blank">5.pdf</a>
+        <a class="pdf-link" href="6.pdf" target="_blank">6.pdf</a>
+        <a class="pdf-link" href="7.pdf" target="_blank">7.pdf</a>
+        <a class="pdf-link" href="8.pdf" target="_blank">8.pdf</a>
+        <a class="pdf-link" href="9.pdf" target="_blank">9.pdf</a>
+        <a class="pdf-link" href="10.pdf" target="_blank">10.pdf</a>
+        <a class="pdf-link" href="11.pdf" target="_blank">11.pdf</a>
+        <a class="pdf-link" href="12.pdf" target="_blank">12.pdf</a>
+        <a class="pdf-link" href="13.pdf" target="_blank">13.pdf</a>
+        <a class="pdf-link" href="14.pdf" target="_blank">14.pdf</a>
+        <a class="pdf-link" href="15.pdf" target="_blank">15.pdf</a>
+        <a class="pdf-link" href="16.pdf" target="_blank">16.pdf</a>
+        <a class="pdf-link" href="17.pdf" target="_blank">17.pdf</a>
+        <a class="pdf-link" href="18.pdf" target="_blank">18.pdf</a>
+        <a class="pdf-link" href="19.pdf" target="_blank">19.pdf</a>
+        <a class="pdf-link" href="20.pdf" target="_blank">20.pdf</a>
+        <a class="pdf-link" href="21.pdf" target="_blank">21.pdf</a>
+        <a class="pdf-link" href="22.pdf" target="_blank">22.pdf</a>
+        <a class="pdf-link" href="23.pdf" target="_blank">23.pdf</a>
+        <a class="pdf-link" href="24.pdf" target="_blank">24.pdf</a>
+        <a class="pdf-link" href="25.pdf" target="_blank">25.pdf</a>
+        <a class="pdf-link" href="26.pdf" target="_blank">26.pdf</a>
+        <a class="pdf-link" href="27.pdf" target="_blank">27.pdf</a>
+        <a class="pdf-link" href="28.pdf" target="_blank">28.pdf</a>
+        <a class="pdf-link" href="29.pdf" target="_blank">29.pdf</a>
+        <a class="pdf-link" href="30.pdf" target="_blank">30.pdf</a>
+        <a class="pdf-link" href="31.pdf" target="_blank">31.pdf</a>
+        <a class="pdf-link" href="32.pdf" target="_blank">32.pdf</a>
+        <a class="pdf-link" href="33.pdf" target="_blank">33.pdf</a>
+        <a class="pdf-link" href="34.pdf" target="_blank">34.pdf</a>
+        <a class="pdf-link" href="35.pdf" target="_blank">35.pdf</a>
+        <a class="pdf-link" href="36.pdf" target="_blank">36.pdf</a>
+        <a class="pdf-link" href="37.pdf" target="_blank">37.pdf</a>
+        <a class="pdf-link" href="38.pdf" target="_blank">38.pdf</a>
+      </div>
+
+      <p class="small-note lang-ua">PDF-файли відкриваються в окремій вкладці.</p>
+      <p class="small-note lang-en">PDF files open in a separate browser tab.</p>
+    </section>
+
+  </div>
+
+  <footer>
+    © 2026 KidneyHelp • Dr Lidiia Denova • Publications
+  </footer>
+
+  <script>
+    function setLanguage(lang) {
+      const btnUa = document.getElementById('btn-ua');
+      const btnEn = document.getElementById('btn-en');
+
+      document.body.classList.remove('lang-ua', 'lang-en');
+      document.body.classList.add('lang-' + lang);
+
+      if (lang === 'ua') {
+        btnUa.classList.add('active');
+        btnEn.classList.remove('active');
+        document.documentElement.lang = 'uk';
+      } else {
+        btnUa.classList.remove('active');
+        btnEn.classList.add('active');
+        document.documentElement.lang = 'en';
+      }
+
+      localStorage.setItem('siteLang', lang);
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const savedLang = localStorage.getItem('siteLang') || 'ua';
+      setLanguage(savedLang);
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    const supabaseUrl = "https://hfteojwsbhdjwkfqwqor.supabase.co";
+    const supabaseKey = "sb_publishable_AXyEJtGhjp5Y1JBqw9LXsw_rWPAX-BC";
+
+    const client = window.supabase.createClient(supabaseUrl, supabaseKey);
+
+    async function countVisit() {
+      const { error } = await client.rpc("increment_total_visits");
+      if (error) {
+        console.error("increment_total_visits error:", error);
+      }
+    }
+
+    async function loadStats() {
+      const { data, error } = await client.rpc("get_site_stats");
+      if (error) {
+        console.error("get_site_stats error:", error);
+        return;
+      }
+
+      const stats = Object.fromEntries((data || []).map(row => [row.key, row.value]));
+
+      const totalVisitsEl = document.getElementById("totalVisits");
+      const pdfOpensEl = document.getElementById("pdfOpens");
+      const pdfDownloadsEl = document.getElementById("pdfDownloads");
+
+      if (totalVisitsEl) totalVisitsEl.textContent = stats.total_visits ?? 0;
+      if (pdfOpensEl) pdfOpensEl.textContent = stats.pdf_opens ?? 0;
+      if (pdfDownloadsEl) pdfDownloadsEl.textContent = stats.pdf_downloads ?? 0;
+    }
+
+    function setupPdfTracking() {
+      const pdfLinks = document.querySelectorAll('a[href$=".pdf"], a[href*=".pdf?"]');
+
+      pdfLinks.forEach(link => {
+        link.addEventListener("click", async () => {
+          const text = (link.textContent || "").toLowerCase();
+
+          const isDownload =
+            link.hasAttribute("download") ||
+            text.includes("download") ||
+            text.includes("скач") ||
+            text.includes("завантаж");
+
+          const keyName = isDownload ? "pdf_downloads" : "pdf_opens";
+
+          const { data, error } = await client.rpc("increment_pdf_stat", {
+            p_key: keyName
+          });
+
+          if (error) {
+            console.error("increment_pdf_stat error:", error);
+            return;
+          }
+
+          if (isDownload) {
+            const el = document.getElementById("pdfDownloads");
+            if (el) el.textContent = data ?? 0;
+          } else {
+            const el = document.getElementById("pdfOpens");
+            if (el) el.textContent = data ?? 0;
+          }
+        });
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", async () => {
+      await countVisit();
+      await loadStats();
+      setupPdfTracking();
+    });
+  </script>
+</body>
+</html>
