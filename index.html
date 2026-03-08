@@ -920,9 +920,9 @@
       const pdfLinks = document.querySelectorAll('a.pdf-track[href$=".pdf"], a.pdf-track[href*=".pdf?"]');
 
       pdfLinks.forEach(link => {
-        link.addEventListener("click", async (e) => {
+        link.addEventListener("click", (e) => {
           e.preventDefault();
-          await trackPdfAndOpen(link);
+          trackPdfAndOpen(link);
         });
       });
     }
