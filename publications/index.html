@@ -274,6 +274,38 @@
       }
     }
   </style>
+  <!-- Google Analytics GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXX');
+  </script>
+
+  <!-- GA4 PDF Click Tracking -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+
+    document.querySelectorAll('a[href$=".pdf"]').forEach(function (link) {
+
+      link.addEventListener('click', function () {
+
+        var fileName = this.href.split('/').pop();
+
+        gtag('event', 'file_download', {
+          file_name: fileName,
+          file_extension: 'pdf',
+          link_text: this.innerText.trim(),
+          link_url: this.href
+        });
+
+      });
+
+    });
+
+  });
+  </script>
 </head>
 
 <body class="lang-ua">
