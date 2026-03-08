@@ -17,13 +17,9 @@
   <meta property="og:url" content="https://kidney.pp.ua/">
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -182,9 +178,7 @@
       box-shadow: 0 10px 28px rgba(0,0,0,0.16);
     }
 
-    .card {
-      padding: 30px;
-    }
+    .card { padding: 30px; }
 
     .section {
       margin-top: 28px;
@@ -203,9 +197,7 @@
       margin-bottom: 0;
     }
 
-    li {
-      margin-bottom: 9px;
-    }
+    li { margin-bottom: 9px; }
 
     .calc-row {
       display: flex;
@@ -273,6 +265,7 @@
       font-size: 14px;
       font-weight: 700;
       background: rgba(255,255,255,0.02);
+      transition: 0.2s ease;
     }
 
     .pdf-link:hover {
@@ -289,30 +282,60 @@
       border-top: 1px solid rgba(255,255,255,0.08);
     }
 
+    /* Research Impact */
+    .impact-stats {
+      margin: 0 0 28px;
+      padding: 24px;
+      border-radius: 18px;
+      background: #f7f9fc;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    }
+
+    .impact-stats h2 {
+      margin: 0 0 18px;
+      font-size: 28px;
+      color: #0f172a;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .stat-card {
+      background: white;
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+    }
+
+    .stat-label {
+      font-size: 14px;
+      opacity: 0.75;
+      margin-bottom: 8px;
+      color: #334155;
+    }
+
+    .stat-value {
+      font-size: 30px;
+      font-weight: 700;
+      color: #000;
+    }
+
     /* Language system */
-
-    body.lang-ua .lang-ua {
-      display: revert;
-    }
-
-    body.lang-ua .lang-en {
-      display: none !important;
-    }
-
-    body.lang-en .lang-ua {
-      display: none !important;
-    }
-
-    body.lang-en .lang-en {
-      display: revert;
-    }
+    body.lang-ua .lang-ua { display: revert; }
+    body.lang-ua .lang-en { display: none !important; }
+    body.lang-en .lang-ua { display: none !important; }
+    body.lang-en .lang-en { display: revert; }
 
     @media (max-width: 980px) {
       .grid,
       .two-col,
       .profiles-grid,
       .social-grid,
-      .archive-grid {
+      .archive-grid,
+      .stats-grid {
         grid-template-columns: 1fr;
       }
 
@@ -320,25 +343,11 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      h1 {
-        font-size: 36px;
-      }
-
-      .subtitle {
-        font-size: 16px;
-      }
-
-      .intro {
-        font-size: 16px;
-      }
-
-      .nav {
-        align-items: flex-start;
-      }
-
-      .nav-links {
-        width: 100%;
-      }
+      h1 { font-size: 36px; }
+      .subtitle { font-size: 16px; }
+      .intro { font-size: 16px; }
+      .nav { align-items: flex-start; }
+      .nav-links { width: 100%; }
 
       input,
       select {
@@ -372,102 +381,19 @@
     ]
   }
   </script>
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-16T0D8XT9X"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-16T0D8XT9X');
   </script>
-  <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const pdfLinks = document.querySelectorAll('a[href$=".pdf"], a[href*=".pdf?"]');
-
-    pdfLinks.forEach(function (link) {
-      link.addEventListener('click', function () {
-        if (typeof gtag !== 'function') return;
-
-        const href = link.getAttribute('href') || '';
-        const fileUrl = new URL(href, window.location.origin).href;
-        const fileName = fileUrl.split('/').pop().split('?')[0];
-        const isDownload =
-          link.hasAttribute('download') ||
-          (link.getAttribute('target') || '').toLowerCase() !== '_blank' &&
-          (link.textContent || '').toLowerCase().includes('download');
-
-        gtag('event', isDownload ? 'pdf_download' : 'pdf_open', {
-          file_name: fileName,
-          file_url: fileUrl,
-          page_location: window.location.href,
-          link_text: (link.textContent || '').trim()
-        });
-      });
-    });
-  });
-  </script>
-  <style>
-  .impact-stats {
-    margin: 32px 0;
-    padding: 24px;
-    border-radius: 18px;
-    background: #f7f9fc;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-  }
-
-  .impact-stats h2 {
-    margin: 0 0 18px;
-    font-size: 28px;
-  }
-
-  .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 16px;
-  }
-
-  .stat-card {
-    background: white;
-    border-radius: 16px;
-    padding: 18px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.05);
-  }
-
-  .stat-label {
-    font-size: 14px;
-    opacity: 0.7;
-    margin-bottom: 8px;
-    color: #333;
-  }
-
-  .stat-value {
-    font-size: 30px;
-    font-weight: 700;
-    color: #000;
-  }
-  </style> 
 </head>
-<body>
-<section id="site-stats" class="impact-stats">
-  <h2>Research Impact</h2>
-  <div class="stats-grid">
-    <div class="stat-card">
-      <div class="stat-label">Усього відвідувань</div>
-      <div class="stat-value" id="totalVisits">0</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-label">PDF відкрито</div>
-      <div class="stat-value" id="pdfOpens">0</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-label">PDF скачано</div>
-      <div class="stat-value" id="pdfDownloads">0</div>
-    </div>
-  </div>
-</section>
 
-<div class="topbar">
+<body class="lang-ua">
+  <div class="topbar">
     <div class="nav">
       <div class="brand">KidneyHelp</div>
 
@@ -566,6 +492,23 @@
   </header>
 
   <div class="container">
+    <section id="site-stats" class="impact-stats">
+      <h2>Research Impact</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">Усього відвідувань</div>
+          <div class="stat-value" id="totalVisits">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">PDF відкрито</div>
+          <div class="stat-value" id="pdfOpens">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">PDF скачано</div>
+          <div class="stat-value" id="pdfDownloads">0</div>
+        </div>
+      </div>
+    </section>
 
     <div class="grid" id="focus">
       <div class="card">
@@ -604,14 +547,10 @@
         <h2 style="font-size:22px;" class="lang-ua">Дисертація</h2>
         <h2 style="font-size:22px;" class="lang-en">PhD thesis</h2>
 
-        <p class="lang-ua">
-          Повний текст дисертації у форматі PDF.
-        </p>
-        <p class="lang-en">
-          Full dissertation text in PDF format.
-        </p>
+        <p class="lang-ua">Повний текст дисертації у форматі PDF.</p>
+        <p class="lang-en">Full dissertation text in PDF format.</p>
 
-        <a class="button secondary"
+        <a class="button secondary pdf-track"
            href="publications/thesis/denova_ckd_uromodulin_phd_thesis.pdf"
            target="_blank">
           <span class="lang-ua">Відкрити PDF дисертації</span>
@@ -725,44 +664,44 @@
           </p>
 
           <div class="pdf-list">
-            <a class="pdf-link" href="publications/articles/1.pdf" target="_blank">1.pdf</a>
-            <a class="pdf-link" href="publications/articles/2.pdf" target="_blank">2.pdf</a>
-            <a class="pdf-link" href="publications/articles/3.pdf" target="_blank">3.pdf</a>
-            <a class="pdf-link" href="publications/articles/4.pdf" target="_blank">4.pdf</a>
-            <a class="pdf-link" href="publications/articles/5.pdf" target="_blank">5.pdf</a>
-            <a class="pdf-link" href="publications/articles/6.pdf" target="_blank">6.pdf</a>
-            <a class="pdf-link" href="publications/articles/7.pdf" target="_blank">7.pdf</a>
-            <a class="pdf-link" href="publications/articles/8.pdf" target="_blank">8.pdf</a>
-            <a class="pdf-link" href="publications/articles/9.pdf" target="_blank">9.pdf</a>
-            <a class="pdf-link" href="publications/articles/10.pdf" target="_blank">10.pdf</a>
-            <a class="pdf-link" href="publications/articles/11.pdf" target="_blank">11.pdf</a>
-            <a class="pdf-link" href="publications/articles/12.pdf" target="_blank">12.pdf</a>
-            <a class="pdf-link" href="publications/articles/13.pdf" target="_blank">13.pdf</a>
-            <a class="pdf-link" href="publications/articles/14.pdf" target="_blank">14.pdf</a>
-            <a class="pdf-link" href="publications/articles/15.pdf" target="_blank">15.pdf</a>
-            <a class="pdf-link" href="publications/articles/16.pdf" target="_blank">16.pdf</a>
-            <a class="pdf-link" href="publications/articles/17.pdf" target="_blank">17.pdf</a>
-            <a class="pdf-link" href="publications/articles/18.pdf" target="_blank">18.pdf</a>
-            <a class="pdf-link" href="publications/articles/19.pdf" target="_blank">19.pdf</a>
-            <a class="pdf-link" href="publications/articles/20.pdf" target="_blank">20.pdf</a>
-            <a class="pdf-link" href="publications/articles/21.pdf" target="_blank">21.pdf</a>
-            <a class="pdf-link" href="publications/articles/22.pdf" target="_blank">22.pdf</a>
-            <a class="pdf-link" href="publications/articles/23.pdf" target="_blank">23.pdf</a>
-            <a class="pdf-link" href="publications/articles/24.pdf" target="_blank">24.pdf</a>
-            <a class="pdf-link" href="publications/articles/25.pdf" target="_blank">25.pdf</a>
-            <a class="pdf-link" href="publications/articles/26.pdf" target="_blank">26.pdf</a>
-            <a class="pdf-link" href="publications/articles/27.pdf" target="_blank">27.pdf</a>
-            <a class="pdf-link" href="publications/articles/28.pdf" target="_blank">28.pdf</a>
-            <a class="pdf-link" href="publications/articles/29.pdf" target="_blank">29.pdf</a>
-            <a class="pdf-link" href="publications/articles/30.pdf" target="_blank">30.pdf</a>
-            <a class="pdf-link" href="publications/articles/31.pdf" target="_blank">31.pdf</a>
-            <a class="pdf-link" href="publications/articles/32.pdf" target="_blank">32.pdf</a>
-            <a class="pdf-link" href="publications/articles/33.pdf" target="_blank">33.pdf</a>
-            <a class="pdf-link" href="publications/articles/34.pdf" target="_blank">34.pdf</a>
-            <a class="pdf-link" href="publications/articles/35.pdf" target="_blank">35.pdf</a>
-            <a class="pdf-link" href="publications/articles/36.pdf" target="_blank">36.pdf</a>
-            <a class="pdf-link" href="publications/articles/37.pdf" target="_blank">37.pdf</a>
-            <a class="pdf-link" href="publications/articles/38.pdf" target="_blank">38.pdf</a>
+            <a class="pdf-link pdf-track" href="publications/articles/1.pdf" target="_blank">1.pdf</a>
+            <a class="pdf-link pdf-track" href="publications/articles/2.pdf" target="_blank">2.pdf</a>
+            <a class="pdf-link pdf-track" href="publications/articles/3.pdf" target="_blank">3.pdf</a>
+            <a class="pdf-link pdf-track" href="publications/articles/4.pdf" target="_blank">4.pdf</a>
+            <a class="pdf-link pdf-track" href="publications/articles/5.pdf" target="_blank">5.pdf</a>
+            <a class="pdf-link pdf-track" href="publications/articles/6.pdf" target="_blank">6.pdf</a>
+            <a class="pdf-link pdf-track" href="publications/articles/7.pdf" target="_blank">7.pdf</a>
+            <a class="pdf-link pdf-track" href="publications/articles/8.pdf" target="_blank">8.pdf</a>
+            <a class="pdf-link pdf-track" href="publications/articles/9.pdf" target="_blank">9.pdf</a>
+            <a class="pdf-link pdf-track" href="publications/articles/10.pdf" target="_blank">10.pdf</a>
+            <a class="pdf-link pdf-track" href="publications/articles/11.pdf" target="_blank">11.pdf</a>
+            <a class="pdf-link pdf-track" href="publications/articles/12.pdf" target="_blank">12.pdf</a>
+            <a class="pdf-link pdf-track" href="publications/articles/13.pdf" target="_blank">13.pdf</a>
+            <a class="pdf-link pdf-track" href="publications/articles/14.pdf" target="_blank">14.pdf</a>
+            <a class="pdf-link pdf-track" href="publications/articles/15.pdf" target="_blank">15.pdf</a>
+            <a class="pdf-link pdf-track" href="publications/articles/16.pdf" target="_blank">16.pdf</a>
+            <a class="pdf-link pdf-track" href="publications/articles/17.pdf" target="_blank">17.pdf</a>
+            <a class="pdf-link pdf-track" href="publications/articles/18.pdf" target="_blank">18.pdf</a>
+            <a class="pdf-link pdf-track" href="publications/articles/19.pdf" target="_blank">19.pdf</a>
+            <a class="pdf-link pdf-track" href="publications/articles/20.pdf" target="_blank">20.pdf</a>
+            <a class="pdf-link pdf-track" href="publications/articles/21.pdf" target="_blank">21.pdf</a>
+            <a class="pdf-link pdf-track" href="publications/articles/22.pdf" target="_blank">22.pdf</a>
+            <a class="pdf-link pdf-track" href="publications/articles/23.pdf" target="_blank">23.pdf</a>
+            <a class="pdf-link pdf-track" href="publications/articles/24.pdf" target="_blank">24.pdf</a>
+            <a class="pdf-link pdf-track" href="publications/articles/25.pdf" target="_blank">25.pdf</a>
+            <a class="pdf-link pdf-track" href="publications/articles/26.pdf" target="_blank">26.pdf</a>
+            <a class="pdf-link pdf-track" href="publications/articles/27.pdf" target="_blank">27.pdf</a>
+            <a class="pdf-link pdf-track" href="publications/articles/28.pdf" target="_blank">28.pdf</a>
+            <a class="pdf-link pdf-track" href="publications/articles/29.pdf" target="_blank">29.pdf</a>
+            <a class="pdf-link pdf-track" href="publications/articles/30.pdf" target="_blank">30.pdf</a>
+            <a class="pdf-link pdf-track" href="publications/articles/31.pdf" target="_blank">31.pdf</a>
+            <a class="pdf-link pdf-track" href="publications/articles/32.pdf" target="_blank">32.pdf</a>
+            <a class="pdf-link pdf-track" href="publications/articles/33.pdf" target="_blank">33.pdf</a>
+            <a class="pdf-link pdf-track" href="publications/articles/34.pdf" target="_blank">34.pdf</a>
+            <a class="pdf-link pdf-track" href="publications/articles/35.pdf" target="_blank">35.pdf</a>
+            <a class="pdf-link pdf-track" href="publications/articles/36.pdf" target="_blank">36.pdf</a>
+            <a class="pdf-link pdf-track" href="publications/articles/37.pdf" target="_blank">37.pdf</a>
+            <a class="pdf-link pdf-track" href="publications/articles/38.pdf" target="_blank">38.pdf</a>
           </div>
         </div>
 
@@ -784,7 +723,7 @@
             Ukrainian utility model patent No. 155375 (2024).
           </p>
 
-          <a class="button secondary" href="publications/patents/patent_155375.pdf" target="_blank">
+          <a class="button secondary pdf-track" href="publications/patents/patent_155375.pdf" target="_blank">
             <span class="lang-ua">Відкрити PDF патенту</span>
             <span class="lang-en">Open patent PDF</span>
           </a>
@@ -841,7 +780,6 @@
         </div>
       </div>
     </div>
-
   </div>
 
   <footer>
@@ -849,138 +787,154 @@
   </footer>
 
   <script>
+    function calcEgfr() {
+      let cr = parseFloat(document.getElementById("creatinine").value);
+      let age = parseFloat(document.getElementById("age").value);
+      let sex = document.getElementById("sex").value;
+      let result = document.getElementById("result");
 
-  function calcEgfr() {
+      if (isNaN(cr) || isNaN(age) || cr <= 0 || age <= 0) {
+        result.innerHTML = "Please enter valid creatinine and age values.";
+        return;
+      }
 
-    let cr = parseFloat(document.getElementById("creatinine").value);
-    let age = parseFloat(document.getElementById("age").value);
-    let sex = document.getElementById("sex").value;
-    let result = document.getElementById("result");
+      cr = cr / 88.4;
 
-    if (isNaN(cr) || isNaN(age) || cr <= 0 || age <= 0) {
-      result.innerHTML = "Please enter valid creatinine and age values.";
-      return;
+      let k = sex === "female" ? 0.7 : 0.9;
+      let a = sex === "female" ? -0.329 : -0.411;
+      let sexFactor = sex === "female" ? 1.018 : 1.0;
+
+      let egfr =
+        141 *
+        Math.pow(Math.min(cr / k, 1), a) *
+        Math.pow(Math.max(cr / k, 1), -1.209) *
+        Math.pow(0.993, age) *
+        sexFactor;
+
+      result.innerHTML = "eGFR ≈ " + egfr.toFixed(1) + " ml/min/1.73 m²";
     }
 
-    cr = cr / 88.4;
+    function setLanguage(lang) {
+      const btnUa = document.getElementById('btn-ua');
+      const btnEn = document.getElementById('btn-en');
 
-    let k = sex === "female" ? 0.7 : 0.9;
-    let a = sex === "female" ? -0.329 : -0.411;
-    let sexFactor = sex === "female" ? 1.018 : 1.0;
+      document.body.classList.remove('lang-ua', 'lang-en');
+      document.body.classList.add('lang-' + lang);
 
-    let egfr =
-      141 *
-      Math.pow(Math.min(cr / k, 1), a) *
-      Math.pow(Math.max(cr / k, 1), -1.209) *
-      Math.pow(0.993, age) *
-      sexFactor;
+      if (lang === 'ua') {
+        btnUa.classList.add('active');
+        btnEn.classList.remove('active');
+        document.documentElement.lang = 'uk';
+      } else {
+        btnUa.classList.remove('active');
+        btnEn.classList.add('active');
+        document.documentElement.lang = 'en';
+      }
 
-    result.innerHTML = "eGFR ≈ " + egfr.toFixed(1) + " ml/min/1.73 m²";
-  }
-
-
-
-  function setLanguage(lang) {
-
-    const btnUa = document.getElementById('btn-ua');
-    const btnEn = document.getElementById('btn-en');
-
-    document.body.classList.remove('lang-ua', 'lang-en');
-    document.body.classList.add('lang-' + lang);
-
-    if (lang === 'ua') {
-      btnUa.classList.add('active');
-      btnEn.classList.remove('active');
-      document.documentElement.lang = 'uk';
-    } else {
-      btnUa.classList.remove('active');
-      btnEn.classList.add('active');
-      document.documentElement.lang = 'en';
+      localStorage.setItem('siteLang', lang);
     }
 
-    localStorage.setItem('siteLang', lang);
-  }
-
-
-
-  document.addEventListener('DOMContentLoaded', function () {
-
-    const savedLang = localStorage.getItem('siteLang') || 'ua';
-    setLanguage(savedLang);
-
-  });
-
+    document.addEventListener('DOMContentLoaded', function () {
+      const savedLang = localStorage.getItem('siteLang') || 'ua';
+      setLanguage(savedLang);
+    });
   </script>
+
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
-  const supabaseUrl = "https://hfteojwsbhdjwkfqwqor.supabase.co";
-  const supabaseKey = "sb_publishable_AXyEJtGhjp5Y1JBqw9LXsw_rWPAX-BC";
+    const supabaseUrl = "https://hfteojwsbhdjwkfqwqor.supabase.co";
+    const supabaseKey = "sb_publishable_AXyEJtGhjp5Y1JBqw9LXsw_rWPAX-BC";
+    const client = window.supabase.createClient(supabaseUrl, supabaseKey);
 
-  const client = window.supabase.createClient(supabaseUrl, supabaseKey);
-
-  async function countVisit() {
-    const { error } = await client.rpc("increment_total_visits");
-    if (error) console.error("increment_total_visits error:", error);
-  }
-
-  async function loadStats() {
-    const { data, error } = await client.rpc("get_site_stats");
-    if (error) {
-      console.error("get_site_stats error:", error);
-      return;
+    async function countVisit() {
+      const { error } = await client.rpc("increment_total_visits");
+      if (error) {
+        console.error("increment_total_visits error:", error);
+      }
     }
 
-    const stats = Object.fromEntries((data || []).map(row => [row.key, row.value]));
+    async function loadStats() {
+      const { data, error } = await client.rpc("get_site_stats");
+      if (error) {
+        console.error("get_site_stats error:", error);
+        return;
+      }
 
-    const totalVisitsEl = document.getElementById("totalVisits");
-    const pdfOpensEl = document.getElementById("pdfOpens");
-    const pdfDownloadsEl = document.getElementById("pdfDownloads");
+      const stats = Object.fromEntries((data || []).map(row => [row.key, row.value]));
 
-    if (totalVisitsEl) totalVisitsEl.textContent = stats.total_visits ?? 0;
-    if (pdfOpensEl) pdfOpensEl.textContent = stats.pdf_opens ?? 0;
-    if (pdfDownloadsEl) pdfDownloadsEl.textContent = stats.pdf_downloads ?? 0;
-  }
+      const totalVisitsEl = document.getElementById("totalVisits");
+      const pdfOpensEl = document.getElementById("pdfOpens");
+      const pdfDownloadsEl = document.getElementById("pdfDownloads");
 
-  function setupPdfTracking() {
-    const pdfLinks = document.querySelectorAll('a[href$=".pdf"], a[href*=".pdf?"]');
+      if (totalVisitsEl) totalVisitsEl.textContent = stats.total_visits ?? 0;
+      if (pdfOpensEl) pdfOpensEl.textContent = stats.pdf_opens ?? 0;
+      if (pdfDownloadsEl) pdfDownloadsEl.textContent = stats.pdf_downloads ?? 0;
+    }
 
-    pdfLinks.forEach(link => {
-      link.addEventListener("click", async () => {
-        const text = (link.textContent || "").toLowerCase();
-        const isDownload =
-          link.hasAttribute("download") ||
-          text.includes("download") ||
-          text.includes("скач") ||
-          text.includes("завантаж");
+    async function trackPdfAndOpen(link) {
+      const text = (link.textContent || "").toLowerCase();
+      const isDownload =
+        link.hasAttribute("download") ||
+        text.includes("download") ||
+        text.includes("скач") ||
+        text.includes("завантаж");
 
-        const keyName = isDownload ? "pdf_downloads" : "pdf_opens";
+      const keyName = isDownload ? "pdf_downloads" : "pdf_opens";
+      const href = link.getAttribute("href");
+      const target = link.getAttribute("target");
 
+      try {
         const { data, error } = await client.rpc("increment_pdf_stat", {
           p_key: keyName
         });
 
         if (error) {
           console.error("increment_pdf_stat error:", error);
-          return;
-        }
-
-        if (isDownload) {
-          const el = document.getElementById("pdfDownloads");
-          if (el) el.textContent = data ?? 0;
         } else {
-          const el = document.getElementById("pdfOpens");
-          if (el) el.textContent = data ?? 0;
+          if (isDownload) {
+            const el = document.getElementById("pdfDownloads");
+            if (el) el.textContent = data ?? 0;
+          } else {
+            const el = document.getElementById("pdfOpens");
+            if (el) el.textContent = data ?? 0;
+          }
         }
+
+        if (typeof gtag === "function") {
+          gtag("event", isDownload ? "pdf_download" : "pdf_open", {
+            file_name: href.split("/").pop(),
+            file_url: new URL(href, window.location.origin).href,
+            page_location: window.location.href,
+            link_text: (link.textContent || "").trim()
+          });
+        }
+      } catch (e) {
+        console.error("PDF tracking error:", e);
+      }
+
+      if (target === "_blank") {
+        window.open(href, "_blank");
+      } else {
+        window.location.href = href;
+      }
+    }
+
+    function setupPdfTracking() {
+      const pdfLinks = document.querySelectorAll('a.pdf-track[href$=".pdf"], a.pdf-track[href*=".pdf?"]');
+
+      pdfLinks.forEach(link => {
+        link.addEventListener("click", async (e) => {
+          e.preventDefault();
+          await trackPdfAndOpen(link);
+        });
       });
+    }
+
+    document.addEventListener("DOMContentLoaded", async () => {
+      await countVisit();
+      await loadStats();
+      setupPdfTracking();
     });
-  }
-
-  document.addEventListener("DOMContentLoaded", async () => {
-    await countVisit();
-    await loadStats();
-    setupPdfTracking();
-  });
   </script>
-
-  </body>
-  </html>
+</body>
+</html>
