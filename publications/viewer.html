@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+const supabaseUrl = "https://hfteojwsbhdjwkfqwqor.supabase.co"
+const supabaseKey = "ВАШ_KEY"
+
+const client = supabase.createClient(supabaseUrl, supabaseKey)
+
+async function openPdf(){
+
+const params = new URLSearchParams(window.location.search)
+const file = params.get("file")
+
+await client.rpc("increment_pdf_stat", {
+p_key: "pdf_opens"
+})
+
+window.location.href = file
+
+}
+
+window.onload = openPdf
+</script>
+
+</head>
+<body>
+Opening PDF...
+</body>
+</html>
