@@ -535,7 +535,7 @@
 
     function setupPdfTracking() {
 
-      const pdfLinks = document.querySelectorAll("a[href$='.pdf']");
+      const pdfLinks = document.querySelectorAll('a[href$=".pdf"], a[href*=".pdf?"]');
 
       pdfLinks.forEach(link => {
 
