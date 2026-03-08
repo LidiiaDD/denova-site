@@ -534,16 +534,28 @@
     }
 
     function setupPdfTracking() {
-      const pdfLinks = document.querySelectorAll('a.pdf-track[href$=".pdf"], a.pdf-track[href*=".pdf?"]');
+
+      const pdfLinks = document.querySelectorAll("a[href$='.pdf']");
 
       pdfLinks.forEach(link => {
-        link.addEventListener("click", (e) => {
-          e.preventDefault();
-          trackPdfAndOpen(link);
-        });
-      });
-    }
 
+        link.addEventListener("click", function(e){
+
+          e.preventDefault();
+
+          const href = this.getAttribute("href");
+
+          client.rpc("increment_pdf_stat", {
+            p_key: "pdf_opens"
+          });
+
+          window.open(href, "_blank");
+
+        });
+
+      });
+
+    }
     document.addEventListener("DOMContentLoaded", async () => {
       await countVisit();
       await loadStats();
