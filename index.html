@@ -883,6 +883,12 @@
       const href = link.getAttribute("href");
       const target = link.getAttribute("target");
 
+      let newTab = null;
+
+      if (target === "_blank") {
+        newTab = window.open("about:blank", "_blank");
+      }
+
       try {
         const { data, error } = await client.rpc("increment_pdf_stat", {
           p_key: keyName
@@ -899,21 +905,12 @@
             if (el) el.textContent = data ?? 0;
           }
         }
-
-        if (typeof gtag === "function") {
-          gtag("event", isDownload ? "pdf_download" : "pdf_open", {
-            file_name: href.split("/").pop(),
-            file_url: new URL(href, window.location.origin).href,
-            page_location: window.location.href,
-            link_text: (link.textContent || "").trim()
-          });
-        }
       } catch (e) {
         console.error("PDF tracking error:", e);
       }
 
-      if (target === "_blank") {
-        window.open(href, "_blank");
+      if (newTab) {
+        newTab.location.href = href;
       } else {
         window.location.href = href;
       }
